@@ -1,50 +1,47 @@
 <?php
 
-    // $_SESSION['idmapa'] = $_GET['idmapa'];  
-$sql_mapa = "SELECT * FROM mapas ORDER BY idmapa DESC";
+
 
    if(isset($_GET['acao'])) {
+        
+         $sql_mapa = "SELECT * FROM mapas";
 
-      $sql_mapa = "SELECT * FROM mapas ORDER BY idmapa DESC";
+            if(isset($_GET['idmapa'])) {
 
+                $idmapa = $_GET['idmapa'];
+                $sql_mapa = "SELECT * FROM mapas WHERE idmapa=$idmapa"; 
+            }
 // --------------------------------------------------------------------------------- 
          
          
-         if(($_GET['acao']) == 'view') {
+         if($_GET['acao'] == 'view') {
 
             $sql_mapa = "SELECT * FROM mapas ORDER BY idmapa DESC";
 
-            if(isset($_GET['view'])) {
-
-               if(($_GET['view']) == 'sint') {
-
-                $sql_mapa = "SELECT * FROM mapas WHERE idmapa=$idmapa";
-                 
-                }
-                
-             ;}
+            
          ;}
+// --------------------------------------------------------------------------------- 
+
+         if($_GET['acao'] == 'insert') { 
+            $acao = "insert";
+        } 
 
 // --------------------------------------------------------------------------------- 
 
-         if(($_GET['acao']) == 'update') { 
-
-            $sql_mapa = "SELECT * FROM mapas WHERE idmapa=$idmapa";
+         if($_GET['acao'] == 'update') { 
 
          } 
 
 // --------------------------------------------------------------------------------- 
 
-         if(($_GET['acao']) == 'delete') { 
-
-            $sql_mapa = "SELECT * FROM mapas WHERE idmapa=$idmapa";
+         if($_GET['acao'] == 'delete') { 
 
          } 
 
 // --------------------------------------------------------------------------------- 
 if(isset($_POST['acao'])) {
 
-         if(($_POST['acao']) == 'insert') {
+         if($_POST['acao'] == 'insert') {
 
           $ala = $_POST["ala"]; // ALA
 
@@ -88,7 +85,7 @@ if(isset($_POST['acao'])) {
             $mapa_ultimo_registro = $conn->insert_id;
             
               // echo "<script>alert('Novo registro inserido com sucesso');</script>";
-              echo "<script>location.href='?page=mapas&acao=view&view=sint&idmapa=".$mapa_ultimo_registro."'</script>";
+              echo "<script>location.href='?page=detmapas&acao=view&view=sint&idmapa=".$mapa_ultimo_registro."'</script>";
             } else {
               echo "Error: " . $sql . "<br>" . $conn->error;
             }
@@ -108,5 +105,4 @@ if(isset($_POST['acao'])) {
 
             $result = mysqli_query($conn, $sql_mapa);
             $row = mysqli_fetch_assoc($result);
-            $_SESSION['idmapa'] = $row['idmapa'];
  ;?>

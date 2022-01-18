@@ -9,7 +9,7 @@ if (isset($_GET['acao'])) {
 
 			if(isset($_GET['view'])) {
 
-				if($_GET['view'] == 'filter') { 
+				if($_GET['view'] == 'analit') { 
 				$vtrid = $_GET['vtrid'];
 				$sql_vtr = "SELECT * FROM vtr WHERE vtrid = $vtrid"; // LISTA DE VEÍCULOS com filtro
 				}
@@ -26,35 +26,24 @@ if (isset($_GET['acao'])) {
 
 			$sql_vtr = "SELECT vtrid, vtrtipo FROM vtr WHERE vtrstatus = 'ativa'";
 
-			if (isset($_GET['filter'])) {
-
-				$filter = $_GET['filter'];
-
-				if (($_GET['filter']) == 'vtrid') {
-
-					if (isset($_GET['idvtr'])) {
-						
-						$idvtr = $_GET['idvtr']; 
-			            $sql_vtr = "SELECT vtrid, vtrtipo FROM vtr WHERE vtrid=$idvtr";
-			            
-					}
-				;}
-
-				if (($_GET['filter']) == 'vtrtipo') {
-
-					if(isset($_GET['vtrtipo'])) {
-
-			            $vtrtipo =  $_GET['vtrtipo'];  
-			            $sql_vtr = "SELECT vtrtipo FROM vtr WHERE vtrtipo='$vtrtipo'";
-		            
-		            }
+			if (isset($_GET['idvtr'])) {
+				
+				$idvtr = $_GET['idvtr']; 
+	            $sql_vtr = "SELECT vtrid, vtrtipo FROM vtr WHERE vtrid=$idvtr";
+	      
+			}
 
 
-				;}
+			if(isset($_GET['vtrtipo'])) {
 
-			;}	
+	            $vtrtipo =  $_GET['vtrtipo'];  
+	            $sql_vtr = "SELECT vtrtipo FROM vtr WHERE vtrtipo='$vtrtipo'";
+            
+            }
 
-		;}
+		 ;}
+
+
 
 
 

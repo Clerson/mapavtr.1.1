@@ -3,7 +3,7 @@
 
    if(isset($_GET['acao'])) { 
 
-
+$sql_pessoas = "SELECT * FROM pessoas WHERE status = 's'";
          if(($_GET['acao']) == 'view') {
 
         $sql_pessoas = "SELECT * FROM pessoas WHERE status = 's'";

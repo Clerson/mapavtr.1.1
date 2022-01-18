@@ -1,40 +1,38 @@
-<?php
+<?php require_once "model.php";?>
 
-require_once "mapas_model.php"
- 
 
-?>
-<div class="p-2 bg-warning d-flex m-0">
+<li class="nav-item dropdown btn-light shadow-sm rounded-2">
 
-   <div class="col">
-       <a href="?page=mapadet&acao=view&view=sint&idmapa=<?php echo $row['idmapa'];?>" class="btn btn-success">
-            <i class='far fa-bookmark'></i> <?php echo $row["ala"];?>
+   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+      <i class='fas fa-bookmark'></i> <?php echo $row["ala"];?>
+   </a>
+  
+  <ul class="dropdown-menu">
+   <li>
+      <a class="dropdown-item" href="#"> 
+         Data:<br />
+         <b><?php echo date('d/m/y', strtotime($row['data']));?></b>
       </a>
-   </div>
+   </li>
+   <li>
+      <a class="dropdown-item" href="#">
+       Oficial de Dia:<br />
 
-      <div class="col">
-      <div class="row">Data:</div>
-      <b> <?php echo date('d/m/Y', strtotime($row['data']));?></b>
-   </div>
+               <?php
+                  $idofdia = $row["idofdia"];
+                  $sql_idofdia = "SELECT * FROM pessoas WHERE codmil = $idofdia";
+                  $result_idofdia = mysqli_query($conn, $sql_idofdia);
+                  $row_idofdia = mysqli_fetch_assoc($result_idofdia);
+                 echo "
+                    ".$row_idofdia["grad"]." <b> ".$row_idofdia["nomeguerra"]."</b>
+                 "
+                ;?>
+      </a>
+   </li>
 
-   <div class="col">
-      
-      <div class="row">Oficial de Dia:</div>
-
-         <?php
-            $idofdia = $row["idofdia"];
-            $sql_idofdia = "SELECT * FROM pessoas WHERE codmil = $idofdia";
-            $result_idofdia = mysqli_query($conn, $sql_idofdia);
-            $row_idofdia = mysqli_fetch_assoc($result_idofdia);
-           echo "
-              ".$row_idofdia["grad"]." <b> ".$row_idofdia["nomeguerra"]."</b>
-           "
-          ;?>
-             
-</div>
-
-   <div class="col">
-      <div class="row">Chefe de Socorro:</div>
+    <li>
+      <a class="dropdown-item" href="#">
+         Chefe de Socorro:<br />
 
          <?php
             $idchefe = $row["idchefe"];
@@ -46,11 +44,11 @@ require_once "mapas_model.php"
            "
 
           ;?>
-             
-   </div>
-
-   <div class="col">
-      <div class="row">Telefonista 1:</div> 
+      </a>
+   </li>    
+    <li>
+      <a class="dropdown-item" href="#">
+      Telefonista 1:<br /> 
          <?php
             $idtelefonista = $row["idtelefonista1"];
             $sql2 = "SELECT * FROM pessoas WHERE codmil = $idtelefonista";
@@ -60,10 +58,12 @@ require_once "mapas_model.php"
               ".$row2["grad"]." <b>".$row2["nomeguerra"]."</b>
            "
          ;?>
-   </div>
 
-   <div class="col">
-      <div class="row">Telefonista 2:</div> 
+      </a>
+   </li>
+    <li>
+      <a class="dropdown-item" href="#">
+      Telefonista 2:<br /> 
          <?php
             $idtelefonista2 = $row["idtelefonista2"];
             $sql_tel2 = "SELECT * FROM pessoas WHERE codmil = $idtelefonista2";
@@ -73,12 +73,11 @@ require_once "mapas_model.php"
               ".$row_tel2["grad"]." <b>".$row_tel2["nomeguerra"]."</b>
            "
            ;?>
-              
-   </div>
 
-
-
-</div>
+      </a>
+   </li>
+   </ul>
+</li>
 
 
 

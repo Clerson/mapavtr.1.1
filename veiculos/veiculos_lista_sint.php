@@ -1,5 +1,5 @@
 <?php
-
+require_once "veiculos_model.php";
              
                
 if(mysqli_num_rows($result_vtr) > 0 ) { ;?>

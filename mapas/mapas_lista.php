@@ -1,6 +1,6 @@
 <?php require_once "mapas_model.php"; ?>
 
-<div class="container-fluid">
+<div class="container">
 
   <table class="table table-striped">
     <thead>
@@ -18,7 +18,7 @@
 
 <?php if ($result->num_rows > 0) {
   // output data of each row
-  while($row = $result->fetch_assoc()) { 
+  do { 
 
       $idchefe = $row["idchefe"];
       $idofdia = $row["idofdia"];
@@ -29,7 +29,21 @@
       <tr>
         <td><?php echo $row["ala"];?></td>
         <td>
-         <?php
+          <?php // OFICIAL DE DIA
+            $sql_idofdia = "SELECT * FROM pessoas WHERE codmil = $idofdia";
+            $result_idofdia = mysqli_query($conn, $sql_idofdia);
+
+            if (mysqli_num_rows($result_idofdia) > 0) {
+
+              while($row_idofdia = mysqli_fetch_assoc($result_idofdia)) { ?>
+
+                <?php echo $row_idofdia["nomeguerra"];?>
+
+            <?php } } ;?>
+
+        </td>
+        <td>
+        <?php
             $sql_chefesos = "SELECT * FROM pessoas WHERE codmil = $idchefe";
             $result_chefesos = mysqli_query($conn, $sql_chefesos);
 
@@ -38,20 +52,6 @@
               while($row_chefesos = mysqli_fetch_assoc($result_chefesos)) { ?>
 
                 <?php echo $row_chefesos["nomeguerra"];?>
-
-            <?php } } ;?>
-
-        </td>
-        <td>
-         <?php // OFICIAL DE DIA
-            $sql_idofdia = "SELECT * FROM pessoas WHERE codmil = $idofdia";
-            $result_idofdia = mysqli_query($conn, $sql_idofdia);
-
-            if (mysqli_num_rows($result_chefesos) > 0) {
-
-              while($row_idofdia = mysqli_fetch_assoc($result_idofdia)) { ?>
-
-                <?php echo $row_idofdia["nomeguerra"];?>
 
             <?php } } ;?>
 
@@ -92,9 +92,9 @@
         </td>
 
         <td><?php echo date('d/m/y', (strtotime($row["data"])));?></td>
-        <td><a href="?page=mapas_update&acao=update&idmapa=<?php echo $row["idmapa"] ;?>">Editar</a> | <a href="?page=mapadet&acao=view&view=sint&idmapa=<?php echo $row['idmapa'];?>">Ver</a></td>
+        <td><a href="?page=mapas_update&acao=update&idmapa=<?php echo $row["idmapa"] ;?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Editar</a> <a href="?page=mapadet&acao=view&view=sint&idmapa=<?php echo $row['idmapa'];?>" class="btn btn-primary"><i class="far fa-folder-open"></i> Abrir</a></a></td>
       </tr>
-  <?php }
+  <?php } while($row = $result->fetch_assoc()) ;
 
 } else {
   echo "Sem registro nesta tabela";
