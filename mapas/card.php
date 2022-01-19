@@ -3,7 +3,7 @@
 
 <?php if ($result->num_rows > 0) {
 
-echo "<div class='row gx-2 gy-2'>";
+echo "<div class='row gx-1 gy-1'>";
 
   do { 
       $ala = $row["ala"];
@@ -18,7 +18,8 @@ echo "<div class='row gx-2 gy-2'>";
   <div class="card-body"><h6><i class='far fa-calendar-alt'></i> <?php echo date('d/m/y', (strtotime($row["data"])));?></h6></div>
   <div class="card-footer">
     <a href="?page=mapas&p=form&idmapa=<?php echo $row["idmapa"] ;?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a> 
-    <a href="?page=mapadet&idmapa=<?php echo $row['idmapa'];?>" class="btn btn-primary"><i class="fas fa-folder-open"></i></a></div>
+    <a href="?page=mapadet&idmapa=<?php echo $row['idmapa'];?>" class="btn btn-primary"><i class="fas fa-folder-open"></i></a>
+  </div>
 </div>
 
       

@@ -1,6 +1,8 @@
 <?php
 
-require_once "model.php";
+include "model.php";
+
+
 
 ?>
 
@@ -29,17 +31,17 @@ require_once "model.php";
     <?php 
       $p = "card.php"; 
      
-      if (isset($_GET["p"])) {
+      // if (isset($_GET["p"])) {
 
-        $p = $_GET['p'];
+      //   $p = $_GET['p'];
 
-        switch ($p) {
-          case "form": $p = "form.php";break;
-          case "model": $p = "model.php";break;
+      //   switch ($p) {
+      //     case "form": $p = "form.php";break;
+      //     case "model": $p = "model.php";break;
         
-        }  
+      //   }  
        
-      }
+      // }
 
       echo include $p;
             
@@ -56,46 +58,83 @@ require_once "model.php";
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">#<?php echo $vtrid; ?> <i class="fas fa-truck"></i> <?php echo $vtrtipo; ?></h4>
+        <h4 class="modal-title"><i class="fas fa-user-plus"></i>Incluindo Pessoas<h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
         <div class="row">
-          <div class="col-sm-5"><img class="card-img-top" src="veiculos/vtrimg/<?php echo $vtrimg; ?>" alt="Card image"></div>
           <div class="col-sm">
 
-            <form action='?page=vtr_model' method='POST' class='row gx-3 gy-2 align-items-center'>
+            <form action="?page=pessoas_model" method="POST"  class="was-validated">
 
-              <?php $vtrid = $vtrpref = $vtrtipo = $vtrmarcamod = $vtrano = $vtrstatus = $vtrimg = ""; ?>
+    <?php $grad = $rg =  $nomeguerra =  $nome =  $contato = $pstatus = "";?>
 
-              <div class="input-group">
-                <span class="input-group-text">Nomenclatura</span>
-                <input type="text" class="form-control" name="vtrtipo" value="<?php echo $vtrtipo; ?>" required>
-              </div>
-              <div class="input-group">
-                <span class="input-group-text">Prefixo</span>
-                <input type="text" class="form-control" name="vtrpref" value="<?php echo $vtrpref; ?>" required>
-              </div>
-              <div class="input-group">
-                <span class="input-group-text">Marca/Modelo</span>
-                <input type="text" class="form-control"  name="vtrmarcamod"   value="<?php echo $vtrmarcamod;?>" placeholder="Marca/Modelo" required >
-              </div>
-              <div class="input-group">
-                <span class="input-group-text">Ano de fabricação</span>
-                <input type="number" class="form-control"  name="vtrano"  value="<?php echo date('Y');?>" placeholder="Ano de fabricação" required>
-              </div>
-              <div class="input-group">
-                <span class="input-group-text">Status</span>
-                <select class="form-select"  name="vtrstatus"  value="<?php echo $vtrstatus;?>" placeholder="Status" required>
-                  <option value="ATIVA" <?php if($vtrstatus == 'ATIVA') echo 'selected';?>>Ativa</option>
-                  <option value="INATIVA" <?php if($vtrstatus == 'INATIVA') echo 'selected';?>>Inativa</option>
+              <div class="form-floating mb-3 mt-3"> 
+                   <input class="form-control" list="grad" name="grad" placeholder="grad" value="<?php echo $grad;?>" required>
+                      <datalist id="grad">
+                        <option value="Cel QOC">
+                        <option value="TC QOC">
+                        <option value="Maj QOC">
+                        <option value="Cap QOC">
+                        <option value="Cap QOA">            
+                        <option value="1º Ten QOC">
+                        <option value="1º Ten QOA">            
+                        <option value="2º Ten QOC">
+                        <option value="2º Ten QOA">
+                        <option value="Asp Of">
+                        <option value="ST QPC">
+                        <option value="1º Sgt QPC">
+                        <option value="2º Sgt QPC">
+                        <option value="3º Sgt QPC">
+                        <option value="Cb QPC">
+                        <option value="Sd QPC">
+                        <option value="Sd 2º Classe">
+                      </datalist>
+                <label for="grad">Posto/Grad:</label>
+                <div class="valid-feedback">Válido</div>
+                <div class="invalid-feedback">Preecha este campo!</div>
+            </div>
+
+            <div class="form-floating mb-3 mt-3">   
+                <input type="text" class="form-control" name="rg" value="<?php echo $rg;?>" placeholder="numero do RG"   required>
+                <label for="rg">RG:</label>
+                <div class="valid-feedback">Válido</div>
+                <div class="invalid-feedback">Preecha este campo!</div>
+            </div>
+
+            <div class="form-floating mb-3 mt-3"> 
+                <input type="text" class="form-control" value="<?php echo $nomeguerra;?>" name="nomeguerra" placeholder="Nome de guerra" required>
+                <label for="nomeguerra">Nome de Guerra:</label>
+                <div class="valid-feedback">Válido</div>
+                <div class="invalid-feedback">Preecha este campo!</div>
+            </div>
+
+
+            <div class="form-floating mb-3 mt-3"> 
+                  <input type="text" class="form-control" value="<?php echo $nome;?>" name="nome" placeholder="Nome completo"  required>
+                  <label for="nome">Nome Completo:</label>
+                  <div class="valid-feedback">Válido</div>
+                  <div class="invalid-feedback">Preecha este campo!</div>
+            </div>
+
+            <div class="form-floating mb-3 mt-3"> 
+                  <input type="text" class="form-control" value="<?php echo $contato;?>" name="contato" placeholder="Contato"  required>
+                  <label for="contato">Contato:</label>
+                  <div class="valid-feedback">Válido</div>
+                  <div class="invalid-feedback">Preecha este campo!</div>
+
+            <div class="form-floating mb-3 mt-3">
+               
+                <select class="form-select"  name="pstatus"  value="<?php echo $pstatus;?>" placeholder="Status" required>
+                  <option value="s" <?php if($pstatus == 's') echo 'selected';?>>Ativa</option>
+                  <option value="n" <?php if($pstatus == 'n') echo 'selected';?>>Inativa</option>
                 </select>
-              </div>
-              <input type="text" name="vtrid" value="<?php echo $vtrid;?>" hidden>
+                <label for="pstatus">Status:</label>
+            </div>
 
-              <button type="submit" class="btn btn-primary " name="acao" value="vtrinsert">Enviar</button>
+              <button type="submit" class="btn btn-primary mt-3" name="acao" value="pessoasinsert">Enviar</button>
             </form>
 
         </div>
