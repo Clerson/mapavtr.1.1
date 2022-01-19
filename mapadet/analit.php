@@ -1,37 +1,26 @@
-<?php 
 
-if(mysqli_num_rows($result_detmapa) > 0 ) { ;?>
-
-<div class="row">
-  
 <?php
 
-do { $status = $row_detmapa['detmp_status'] ;?>  
+do { 
 
-<?php if($status == 'fechada') {
-  echo "<div class='col-sm-2 m-1 shadow rounded-3 bg-secondary'>";
+if($row_detmapa['detmp_status'] == 'aberta') {
+
+  echo "<div class='col-sm-2 p-1 shadow-sm rounded-3'>";
 }
-else echo "<div class='col-sm-2 m-1 shadow rounded-3'>";   
+
+else echo "<div class='col-sm-2 p-1 shadow-sm rounded-3 bg-secondary'>";   
 
 ;?>  
-      <div class="container1" >
 
     <a href="#&iddetmp=<?php echo $row_detmapa['iddetmp'];?>" data-bs-toggle="modal" data-bs-target="#iddetmp<?php echo $row_detmapa["iddetmp"]; ?>">
 
-      <img class="image" src="veiculos/vtrimg/<?php echo $row_detmapa["vtrimg"]; ?>">
+      <img  src="veiculos/vtrimg/<?php echo $row_detmapa["vtrimg"]; ?>" width="100%">
 
-      <div class="middle">
-        <div class="vtrtitle" ><?php echo $row_detmapa["vtrtipo"]; ?></div>
+      <div class="btn-warning p-2 text-center rounded-3">
+        <?php echo $row_detmapa["vtrtipo"]; ?>
       </div>
 
     </a>
-
-    <button type="button" class="btn btn-warning p-1" data-bs-toggle="modal" data-bs-target="#excluir<?php echo $row_detmapa["iddetmp"]; ?>">
-    <i class='fas fa-trash'></i>
-    </button> #<?php echo $row_detmapa["iddetmp"]; ?>
-      
-  </div>
-  </div>
 </div>
 
  <!-------------------------------------------------------- The Modal -->
@@ -143,6 +132,9 @@ else echo "<div class='col-sm-2 m-1 shadow rounded-3'>";
 
     <!-- Modal footer -->
       <div class="modal-footer">
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#excluir<?php echo $row_detmapa["iddetmp"]; ?>">
+      <i class='fas fa-trash'></i>
+    </button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
       </div>
 
@@ -150,6 +142,8 @@ else echo "<div class='col-sm-2 m-1 shadow rounded-3'>";
   </div>
 </div>
 </div>
+
+<!-- //------- inicio Modal Excluir -->
 
 <div class="modal fade" id="excluir<?php echo $row_detmapa["iddetmp"]; ?>">
   <div class="modal-dialog">
@@ -179,5 +173,4 @@ else echo "<div class='col-sm-2 m-1 shadow rounded-3'>";
 
 </div>
 
-<?php } ;?>
 
