@@ -21,6 +21,7 @@ else echo "<div class='col-sm-2 p-1 shadow-sm rounded-3 bg-secondary'>";
       </div>
 
     </a>
+    
 </div>
 
  <!-------------------------------------------------------- The Modal -->
