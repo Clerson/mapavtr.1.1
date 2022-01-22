@@ -1,5 +1,4 @@
 
-<div class="container-fluid">
 
   <table class="table table-striped">
     <thead>
@@ -101,4 +100,3 @@
 } $conn->close();?>
      </tbody>
   </table>
-</div>

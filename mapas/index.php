@@ -5,7 +5,7 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title"><i class="fas fa-map-marked-alt"></i> Novo Mapa</h4>
+        <h4 class="modal-title"><i class="fas fa-map"></i> Novo Mapa</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -171,10 +171,11 @@ require_once "model.php";
 <div class="row m-0 sticky-top">
 
   <nav class="navbar navbar-expand-sm bg-warning navbar-light sticky-top rounded-3">
-  <ul class="navbar-nav p-1">
-    <li class="nav-item"><a href='javascript:history.back()' class='btn btn-light shadow-sm me-2'><i class="fas fa-reply"></i> Voltar</a></li>
-    <li class="nav-item ms-2"><a href='#' class='btn btn-light' data-bs-toggle="modal" data-bs-target="#insertmapa"><i class="fas fa-map-marked-alt"></i> Adicionar</a></li>
-  </ul>
+    <ul class="navbar-nav p-1">
+      <li class="nav-item"><a href='javascript:history.back()' class='btn btn-light shadow-sm me-2'><i class="fas fa-reply"></i> Voltar</a></li>
+      <li class="nav-item ms-2"><a href='#' class='btn btn-light' data-bs-toggle="modal" data-bs-target="#insertmapa"><i class="fas fa-map"></i> Adicionar</a></li>
+    </ul>
+    </ul>
   </nav>
 
 </div>  
@@ -186,7 +187,22 @@ require_once "model.php";
 
    <div class="col-sm">
 
-    <?php echo include "card.php" ;?>
+    <?php
+
+    $p = "list.php";
+
+      if (isset($_GET["p"])) { 
+        
+        if ($_GET["p"] == 'list') {
+
+        $p = "list.php";
+      }
+
+    }
+
+    echo include $p;
+    
+    ;?>
 
       </div>
  </div>

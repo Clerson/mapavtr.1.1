@@ -1,6 +1,7 @@
   
 <?php 
 
+if(mysqli_num_rows($result_detmapa) > 0 ) { 
 
  do { 
 $idvtr = $row_detmapa['idvtr']; 
@@ -18,11 +19,12 @@ $row_vtr_m = mysqli_fetch_assoc($result_vtr_m);
 
       <div class="btn-warning p-2 text-center rounded-3">
         <?php echo $row_vtr_m["vtrtipo"]; ?>
-      </div>
+      </div>  
       </a>
 
 </div>
 
  
-<?php } while ($row_detmapa = mysqli_fetch_assoc($result_detmapa)) ;?>
+<?php } while ($row_detmapa = mysqli_fetch_assoc($result_detmapa)); 
 
+} else echo "<h2>Adicione uma viatura</h2>" ;?>

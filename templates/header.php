@@ -29,7 +29,4 @@ require 'conexao.php';
 
   <div class="container-sm p-5">
 
-  <div class="row">
-
-  </div> 
     <div class="row">
