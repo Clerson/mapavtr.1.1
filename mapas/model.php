@@ -1,5 +1,6 @@
 <?php
-    
+    include "../conexao.php";
+
     $idmapa = $ala = $idofdia = $idchefe = $idtelefonista1 = $idtelefonista2 = $date = "";
        
     $sql = "SELECT * FROM mapas ORDER BY idmapa DESC";

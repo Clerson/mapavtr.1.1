@@ -4,13 +4,13 @@ $vtrid = $vtrpref = $vtrtipo = $vtrmarcamod = $vtrano = $vtrstatus = $vtrimg = "
 
 $sql_vtr = "SELECT * FROM vtr ORDER BY vtrtipo ASC";
 
-	if (isset($_GET['vtrid'])) {
+	if (!empty($_GET['vtrid'])) {
 	    
 	    $vtrid = $_GET['vtrid'];
 	    $sql_vtr = "SELECT * FROM vtr WHERE vtrid = $vtrid";   
   }
 
-  if (isset($_GET['idvtr'])) {
+  if (!empty($_GET['idvtr'])) {
       
       $vtrid = $_GET['idvtr'];
       $sql_vtr = "SELECT * FROM vtr, detmapa WHERE idvtr = vtrid AND vtrid = $vtrid";   
@@ -22,9 +22,7 @@ $sql_vtr = "SELECT * FROM vtr ORDER BY vtrtipo ASC";
  //      $sql_vtr = "SELECT * FROM detmapa, vtr WHERE iddetmp=$iddetmp AND vtrid=idvtr";
 	// 	}
 
-  if (isset($_GET['idmapa']) ) { 
-
-      $idmapa = $_GET['idmapa']; 
+  if (!empty($_GET['idmapa']) ) { 
       $sql_vtr = "SELECT * FROM vtr WHERE vtrstatus='ativa' ORDER BY vtrtipo ASC";
     } // usado na form da index
 

@@ -1,3 +1,10 @@
+           
+
+             </div>
+        </div>
+
+
+        </div><!-- Fim da div col -->
     </div><!-- Fim da div row  -->
   </div> <!-- Fim da div container  -->
 

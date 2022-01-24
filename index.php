@@ -1,15 +1,8 @@
-<?php include_once "templates/header.php";?>
+<?php 
 
-   <div class="col-sm-2 bg-white me-2 p-2 rounded-3 shadow">
-    <a href="index.php"><img src="img_topo.png" width="100%"  class="bg-white"></a>
+include_once "templates/header.php";
 
-      <?php include_once "templates/menu_vert_esq.php";?> 
-       
-    </div>
- 
-    <div class="col-sm p-2 rounded-3 bg-light shadow">
-          
-      <?php
+include "templates/index.php";
 
       if (isset($_GET["page"])) {
          
@@ -29,8 +22,6 @@
 
       }
 
-  ;?>
+include 'templates/footer.php';
 
-      </div><!-- Fim da div col -->
-
-<?php include 'templates/footer.php';?>
+?>

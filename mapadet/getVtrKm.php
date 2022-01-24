@@ -9,9 +9,9 @@
 
          echo "      
       <span class='input-group-text'><i class='fas fa-tachometer-alt'></i></span>
-      <span class='input-group-text'>SAÍDA:</span>
+      <span class='input-group-text'>Saída:</span>
       <input type='number' class='form-control' name='odomsaida' value='".$odomentr."' >
-      <span class='input-group-text'>CHEGADA:</span>
+      <span class='input-group-text'>Chegada:</span>
       <input type='number' class='form-control' id='odomentr' name='odomentr' min=".$odomentr." value='".$odomentr."' required>
       ";
 ?>

@@ -1,6 +1,10 @@
 <?php
 
-$idmapa = $iddetmp = $idvtr = $idpessoa = ""; $odomentr = 0;
+require '../conexao.php';
+
+// $iddetmp = $idvtr = $vtrtipo = $vtrimg = $idpessoa = $grad = $nomeguerra = $img = ""; $odomsaida = $odomentr = 0;
+
+$sql_detmapa = "SELECT * FROM detmapa ORDER BY iddetmp DESC";
 
   if(isset($_GET['idmapa'])) {
 
@@ -8,14 +12,19 @@ $idmapa = $iddetmp = $idvtr = $idpessoa = ""; $odomentr = 0;
 
      $sql_detmapa = "SELECT idvtr FROM detmapa WHERE idmapa=$idmapa GROUP BY idvtr";  
     
-    ;} // FIM DA GET IDMAPA --------- ACESSADO PELA PAGINA "sint.php"
+    ;} 
+
+// FIM DA GET IDMAPA --------- ACESSADO PELA PAGINA "sint.php"
 
   if(isset($_GET['idvtr'])) {
 
      $iddetmp = "";
      $idvtr = $_GET['idvtr'];
-     $sql_detmapa = "SELECT * FROM detmapa, vtr, pessoas  WHERE idmapa = $idmapa AND idvtr = $idvtr AND idvtr = vtrid AND idpessoa = codmil ";
-  }   // FIM DA GET idvtr --------- ACESSADO PELA PAGINA "analit.php"
+     $sql_detmapa = "SELECT * FROM detmapa, vtr, pessoas  WHERE idmapa = $idmapa AND idvtr = $idvtr AND idvtr = vtrid AND idpessoa = codmil ORDER BY iddetmp DESC ";
+  } 
+
+// FIM DA GET idvtr --------- ACESSADO PELA PAGINA "analit.php"
+
     
 if(isset($_GET['iddetmp'])) {
 
@@ -31,7 +40,7 @@ if(isset($_GET['iddetmp'])) {
 
      if ($conn->query($sql_detmapa) === TRUE) {
         echo "
-        <script>location.href='?page=mapadet&idmapa=".$idmapa."'</script>";
+        <script>location.href='index.php?idmapa=".$idmapa."'</script>";
       } else {
         echo "Error: " . $sql_detmapa . "<br>" . $conn->error;
       } exit();
@@ -44,13 +53,9 @@ if(isset($_GET['iddetmp'])) {
       
 
       
-if (isset($_POST['acao'])) {  
+if (!empty($_POST['idmapa'])) {  
 
-    $acao = $_POST['acao'];
-    $iddetmp = $_POST['iddetmp'];
     $idmapa = $_POST['idmapa'];
-
-    //MOTORISTA
     $idvtr = $_POST["idvtr"];
     $idpessoa = $_POST["pessoa"];
     $odomsaida = $_POST["odomsaida"];
@@ -61,20 +66,21 @@ if (isset($_POST['acao'])) {
     $status = $_POST["status"];
     $obs = $_POST["obs"];
 
-        if($acao == "insertmapadet") {
-
         $sql_acao = "INSERT INTO detmapa(idmapa, idvtr, idpessoa, odomsaida, odomentr, horasaida, horaentr, destino, detmp_status, obs)
         VALUES ($idmapa, $idvtr, $idpessoa, $odomsaida, $odomentr, '$horasaida', '$horaentr', '$destino', '$status','$obs')";
         
-        }
-
-        if($acao == "updatemapadet") {
-
+        
+        if(!empty($_POST['iddetmp'])) {
+        
+        $iddetmp = $_POST['iddetmp'];
         $sql_acao = "UPDATE detmapa SET idmapa = $idmapa, idvtr = $idvtr, idpessoa = $idpessoa, odomsaida = $odomsaida, odomentr = $odomentr, horasaida = '$horasaida', horaentr = '$horaentr', destino = '$destino',  detmp_status = '$status', obs = '$obs' WHERE iddetmp = $iddetmp";
         
         ;}
-            
-            echo " 
+
+
+
+    if ($conn->query($sql_acao) === TRUE) {            
+        echo " 
             <div class='conteiner-fluid text-center p-2'>
             <button class='btn btn-primary' disabled>
             <span class='spinner-border spinner-border-sm'></span>
@@ -82,9 +88,7 @@ if (isset($_POST['acao'])) {
             </button>
             </div>
             ";
-
-    if ($conn->query($sql_acao) === TRUE) {
-      echo "<script>location.href='?page=mapadet&idmapa=".$idmapa."'</script>";
+      echo "<script>location.href='analit.php?idmapa=".$idmapa."&idvtr=".$idvtr."'</script>";
     } else {
       echo "Error: " . $sql_acao . "<br>" . $conn->error;
     }

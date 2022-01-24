@@ -3,18 +3,18 @@
    $sql_pessoas = "SELECT * FROM pessoas WHERE pstatus = 's' ORDER BY nomeguerra ASC";
         
             
-   if (isset($_GET['codmil'])) {    
+   if (!empty($_GET['codmil'])) {    
       $codmil = $_GET['codmil'];
       $sql_pessoas = "SELECT * FROM pessoas WHERE codmil = $codmil";
    }
 
-   if (isset($_GET['iddetmp'])) {
+   if (!empty($_GET['iddetmp'])) {
       $iddetmp = $_GET['iddetmp'];
       $sql_pessoas = "SELECT codmil, nomeguerra FROM pessoas, detmapa WHERE iddetmp=$iddetmp AND idpessoa = codmil";
    } 
 
 
-if(isset($_GET['delete'])) {
+if(!empty($_GET['delete'])) {
 
     $codmil = $_GET['delete'];
 

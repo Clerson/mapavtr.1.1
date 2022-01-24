@@ -91,7 +91,7 @@
 
         <td><?php echo date('d/m/y', (strtotime($row["data"])));?></td>
         <td><a href="?page=mapas&p=form&idmapa=<?php echo $row["idmapa"] ;?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a> 
-          <a href="?page=mapadet&idmapa=<?php echo $row['idmapa'];?>" class="btn btn-primary"><i class="fas fa-folder-open"></i></a></td>
+          <a href="/mapadet/index.php?idmapa=<?php echo $row['idmapa'];?>" class="btn btn-primary"><i class="fas fa-folder-open"></i></a></td>
       </tr>
   <?php } while($row = $result->fetch_assoc()) ;
 

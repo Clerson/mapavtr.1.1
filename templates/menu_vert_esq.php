@@ -12,9 +12,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.php"><i class='fas fa-home'></i>  INÍCIO</a>
+            <a class="nav-link" href="/"><i class='fas fa-home'></i>  INÍCIO</a>
           </li> 
-          <li class="nav-item"><a href="?page=mapas" class="nav-link"><i class="fas fa-map"></i>  MAPAS</a></li>
+          <li class="nav-item"><a href="/mapas" class="nav-link"><i class="fas fa-map"></i>  MAPAS</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link" href="?page=vtr"><i class='fas fa-ambulance'></i>  VEÍCULOS</a>
           </li>
