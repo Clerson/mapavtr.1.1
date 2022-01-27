@@ -1,8 +1,12 @@
 <?php
+include_once "../conexao.php";
+
+include_once "../templates/header.php";
+
+include "../templates/index.php";
+
 
 include "model.php";
-
-
 
 ?>
 
@@ -150,4 +154,9 @@ include "model.php";
 
     </div>
   </div>
-</div>
+<?php 
+
+include '../templates/footer.php';
+
+?>
+

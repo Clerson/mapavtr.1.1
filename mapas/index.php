@@ -8,7 +8,7 @@ include "../templates/index.php";
 
 include "_head.php";
 
-require_once "model.php";
+include "model.php";
 
 include "_form_mapa_insert.php";
       

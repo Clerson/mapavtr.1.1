@@ -17,11 +17,14 @@
 <?php if ($result->num_rows > 0) {
 
   do { 
+
+      $idmapa = $row['idmapa'];
       $ala = $row["ala"];
       $idchefe = $row["idchefe"];
       $idofdia = $row["idofdia"];
       $idtelefonista = $row["idtelefonista1"];
       $idtelefonista2 = $row["idtelefonista2"];
+      $data = $row['data']; 
     ?>
 
       <tr>
@@ -90,10 +93,12 @@
         </td>
 
         <td><?php echo date('d/m/y', (strtotime($row["data"])));?></td>
-        <td><a href="?page=mapas&p=form&idmapa=<?php echo $row["idmapa"] ;?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a> 
+        <td><a href="" data-bs-toggle="modal" data-bs-target="#updatemapa<?php echo $idmapa ;?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a> 
           <a href="/mapadet/index.php?idmapa=<?php echo $row['idmapa'];?>" class="btn btn-primary"><i class="fas fa-folder-open"></i></a></td>
       </tr>
-  <?php } while($row = $result->fetch_assoc()) ;
+
+
+  <?php include '_form_update.php'; } while($row = $result->fetch_assoc()) ;
 
 } else {
   echo "Sem registro nesta tabela";

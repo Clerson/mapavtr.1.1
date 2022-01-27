@@ -16,7 +16,7 @@
     ?>
 
   <div class="card col-sm-2 shadow-sm rounded-3 p-0">
-      <img class="card-img-top" src="pessoas/pessoas_img/<?php echo $img.".jpg";?>" alt="Card image" width="200" height="200">
+      <img class="card-img-top" src="pessoas_img/<?php echo $img.".jpg";?>" alt="Card image" width="200" height="200">
       <div class="card-body"><?php echo $grad."<b> ".$nomeguerra;?></b></div>
       
       <div class="card-footer">
