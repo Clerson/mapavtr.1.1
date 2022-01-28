@@ -12,11 +12,11 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-sm-4">
-            <img class="image"  src="pessoas_img/<?php echo $row_pessoas["img"].".jpg";?>" alt="Card image">
-            <form action="upload_pessoa_img.php" method="POST" enctype="multipart/form-data" class="form-control">
-              <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+            <img class="image"  src="pessoas_img/<?php echo $row_pessoas["img"];?>" alt="Card image">
+            <form action="upload_pessoa_img.php" method="POST" enctype="multipart/form-data">
+              <input type="file" class="form-control mt-2" name="fileToUpload" id="fileToUpload" >
               <input type="text" name="codmil" value="<?=$row_pessoas['codmil']?>" hidden>
-              <input type="submit" class="btn btn-primary" value="Upload Image" name="submit">
+              <input type="submit"  class="btn btn-primary mt-2" value="Enviar" name="submit">
             </form>
                         
           </div>
@@ -26,7 +26,7 @@
             <form action="model.php" method="POST">
 
 
-              <div class="form-floating mb-3 mt-3"> 
+              <div class="form-floating mb-2"> 
                    <input class="form-control" list="grad" name="grad" placeholder="grad" value="<?php echo $row_pessoas['grad'];?>" required>
                       <datalist id="grad">
                         <option value="Cel QOC">
@@ -50,28 +50,28 @@
                 <label for="grad">Posto/Grad:</label>
               </div>
 
-            <div class="form-floating mb-3 mt-3">   
+            <div class="form-floating mb-2">   
                 <input type="text" class="form-control" name="rg" value="<?php echo $row_pessoas['rg'];?>" placeholder="numero do RG"   required>
                 <label for="rg">RG:</label>
               </div>
 
-            <div class="form-floating mb-3 mt-3"> 
+            <div class="form-floating mb-2"> 
                 <input type="text" class="form-control" value="<?php echo $row_pessoas['nomeguerra'];?>" name="nomeguerra" placeholder="Nome de guerra" required>
                 <label for="nomeguerra">Nome de Guerra:</label>
               </div>
 
 
-            <div class="form-floating mb-3 mt-3"> 
+            <div class="form-floating mb-2"> 
                   <input type="text" class="form-control" value="<?php echo $row_pessoas['nome'];?>" name="nome" placeholder="Nome completo"  required>
                   <label for="nome">Nome Completo:</label>
                 </div>
 
-            <div class="form-floating mb-3 mt-3"> 
+            <div class="form-floating mb-2"> 
                   <input type="text" class="form-control" value="<?php echo $row_pessoas['contato'];?>" name="contato" placeholder="Contato"  required>
                   <label for="contato">Contato:</label>
                 </div>
 
-            <div class="form-floating mb-3 mt-3">
+            <div class="form-floating mb-2">
                
                 <select class="form-select"  name="pstatus"  value="<?php echo $row_pessoas['pstatus'];?>" placeholder="Status" required>
                   <option value="s" <?php if($row_pessoas['pstatus'] == 's') echo 'selected';?>>Ativa</option>
@@ -93,7 +93,7 @@
 
     <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#excluir<?php echo $row_pessoas['codmil'] ?>"><i class="fas fa-trash"></i></button>
+<!--         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#excluir<?php echo $row_pessoas['codmil'] ?>"><i class="fas fa-trash"></i></button> -->
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
       </div>
 

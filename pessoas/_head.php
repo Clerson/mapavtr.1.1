@@ -24,17 +24,20 @@ include "_form_insert.php";
       <li class="nav-item me-2">
           <input class="form-control" type="text" placeholder="Pesquisar pessoas"  name="search_text" id="search_text">
       </li>
+      <li class="nav-item me-2">
+          <span class="btn btn-light">Número de militares ativos: <b><?=mysqli_num_rows($result_pessoas)?></b></span>
+      </li>
 
-       <li class="nav-item me-2 d-flex">
-      <form action="" method="POST" class="d-flex">
-        <select class="form-select me-2" name="pstatus">
-          <option value="" >"Filtrar por status"</option>
-          <option value="s" selected>Ativos</option>
-          <option value="n" >Inativos</option>
-        </select>
-        <input type="submit" class="btn btn-primary" name="">
-      </form>
-    </li>
+      <!-- <li class="nav-item me-2 d-flex">
+        <form action="" method="POST" class="d-flex">
+          <select class="form-select me-2" name="pstatus">
+            <option value="" >"Filtrar por status"</option>
+            <option value="s" selected>Ativos</option>
+            <option value="n" >Inativos</option>
+          </select>
+          <input type="submit" class="btn btn-primary" name="">
+        </form>
+    </li> -->
     </ul>
   </nav>
   

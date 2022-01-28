@@ -2,17 +2,17 @@
    include "../conexao.php";
 
    $sql_pessoas = "SELECT * FROM pessoas";
-   
-    if (!empty($_POST['pstatus'])) {
+    
+  //   if (!empty($_POST['pstatus'])) {
       
-      $pstatus = $_POST['pstatus'];
-      $sql_pessoas .= " WHERE pstatus = '$pstatus' ORDER BY nomeguerra ASC";   
-  }
+  //     $pstatus = $_POST['pstatus'];
+  //     $sql_pessoas .= " WHERE pstatus = '$pstatus' ORDER BY nomeguerra ASC";   
+  // }
   
    if (!empty($_POST['query'])) {
       $search = mysqli_real_escape_string($conn, $_POST["query"]);
-      $sql_pessoas .= " WHERE nome LIKE '%$search%' OR rg LIKE '%$search%' AND pstatus = 's'";
-    }
+      $sql_pessoas .= " WHERE nome LIKE '%$search%' OR rg LIKE '%$search%'";
+    } else $sql_pessoas .= " WHERE pstatus = 's' ORDER BY nomeguerra ASC";
             
    if (!empty($_GET['codmil'])) {    
       $codmil = $_GET['codmil'];
@@ -31,8 +31,6 @@ if(!empty($_GET['delete'])) {
     $codmil = $_GET['delete'];
 
      $sql_delete = "DELETE FROM pessoas WHERE codmil=$codmil";
-
-
 
      if ($conn->query($sql_delete) === TRUE) {            
 

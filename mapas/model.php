@@ -1,7 +1,14 @@
 <?php
     include "../conexao.php";
 
-    $sql = "SELECT * FROM mapas ORDER BY idmapa DESC "; 
+    $sql = "SELECT * FROM mapas ORDER BY idmapa DESC ";
+
+    if(!empty($_GET['idmapa'])) {
+
+        $idmapa = $_GET['idmapa'];
+        $sql = "SELECT * FROM mapas WHERE idmapa=$idmapa";
+        
+    }
 
     $itens_por_pagina = 15;
 
@@ -9,14 +16,9 @@
 
     $inicio = ($itens_por_pagina*$p)-$itens_por_pagina;
 
-    $sql_lim = $sql."LIMIT $inicio, $itens_por_pagina"; 
+    $sql_lim = $sql." LIMIT $inicio, $itens_por_pagina"; 
     
-        if(!empty($_GET['idmapa'])) {
 
-            $idmapa = $_GET['idmapa'];
-            $sql = "SELECT * FROM mapas WHERE idmapa=$idmapa";
-            
-        }
 
        if(!empty($_POST['fdata'])) {
 
