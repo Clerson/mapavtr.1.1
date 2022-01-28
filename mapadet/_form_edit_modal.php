@@ -109,11 +109,17 @@
 </div>
 
     <!-- Modal footer -->
-      <div class="modal-footer">
-    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#excluir<?php echo $row_detmapa["iddetmp"]; ?>">
-Excluir    </button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-      </div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#duplicar<?php echo $iddetmp ;?>">
+    <i class="fas fa-ambulance"></i> Duplicar
+  </button>
+  <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#excluir<?php echo $iddetmp; ?>">
+    <i class="fas fa-trash"></i> Excluir
+  </button>
+  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+    Fechar
+  </button>
+</div>
 
     </div>
   </div>

@@ -11,11 +11,9 @@
       <!-- Modal body -->
       <div class="modal-body">
 
-      <form action="?page=mapas_model" method="POST" class="row gx-3 gy-2 text-center">
+      <form action="model.php" method="POST" class="row gx-3 gy-2 text-center">
 
-        <?php $idmapa = $ala = $idofdia = $idchefe = $idtelefonista1 = $idtelefonista2 = $date = "";?>
-
-     
+ 
         <div class="form-floating">
         <h4><i class='fas fa-bookmark'></i> Selecione a Ala</h4> <!-- ALA DO SERVIÇO -->
 
@@ -44,8 +42,8 @@
 
   
       <div class="form-floating"> <!-- DATA DO SERVIÇO -->
-      <input type="date" class="form-control" name="date" placeholder="Data do serviço" value="<?php echo date('Y-m-d');?>"  required>
-      <label for="date">Data do serviço:</label>
+      <input type="date" class="form-control" name="data" placeholder="Data do serviço" value="<?php echo date('Y-m-d');?>"  required>
+      <label for="data">Data do serviço:</label>
      </div>
 
  <div class="row gx-3 gy-2 text-center">

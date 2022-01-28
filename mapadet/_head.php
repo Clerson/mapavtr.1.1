@@ -15,10 +15,7 @@ include "_form_insert.php";
 
 ?>
 
-<div class="container-fluid">               
-
-  
-  <div class="row sticky-top">
+  <div class="row m-1 sticky-top">
     
     <nav class="navbar navbar-expand-sm bg-warning navbar-light sticky-top rounded-3">
     <ul class="navbar-nav p-1">
@@ -33,4 +30,7 @@ include "_form_insert.php";
       
   </div>
 
- <div class="row">
+ <div class="row m-1">
+
+
+

@@ -122,7 +122,10 @@ if (!empty($_GET['idvtr'])) {
       <textarea rows="5" cols="50" class="form-control" name="obs" placeholder="obs"><?php echo $obs; ?></textarea>
       <label for="obs">Observações:</label>
       </div>
-        <input type="text" name="idmapa" value="<?php echo $idmapa;?>" hidden>
+        
+        <input type="number" name="idmapa" value="<?php echo $idmapa;?>" hidden>
+        <input type="number" name="idvtr" value="<?php echo $idvtr;?>" hidden>
+
 
   <button type="submit" class="btn btn-primary " name="enviar" value="enviar">Enviar</button>
 </form>

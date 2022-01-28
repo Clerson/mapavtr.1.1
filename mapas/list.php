@@ -1,5 +1,3 @@
-
-
   <table class="table table-striped">
     <thead>
       <tr>
@@ -14,7 +12,7 @@
     </thead>
     <tbody>
 
-<?php if ($result->num_rows > 0) {
+<?php if ($result_lim->num_rows > 0) {
 
   do { 
 
@@ -28,7 +26,7 @@
     ?>
 
       <tr>
-        <td><?php echo $ala;?></td>
+        <td><?php echo $idmapa." ".$ala;?></td>
         <td>
           <?php // OFICIAL DE DIA
             $sql_idofdia = "SELECT * FROM pessoas WHERE codmil = $idofdia";
@@ -93,15 +91,36 @@
         </td>
 
         <td><?php echo date('d/m/y', (strtotime($row["data"])));?></td>
-        <td><a href="" data-bs-toggle="modal" data-bs-target="#updatemapa<?php echo $idmapa ;?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a> 
-          <a href="/mapadet/index.php?idmapa=<?php echo $row['idmapa'];?>" class="btn btn-primary"><i class="fas fa-folder-open"></i></a></td>
+        <td><a href="_form_update.php?idmapa=<?php echo $idmapa ;?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a> 
+          <a href="/mapadet/index.php?idmapa=<?php echo $idmapa;?>" class="btn btn-primary"><i class="fas fa-folder-open"></i></a></td>
       </tr>
 
 
-  <?php include '_form_update.php'; } while($row = $result->fetch_assoc()) ;
+  <?php } while($row = mysqli_fetch_assoc($result_lim)) ;
 
 } else {
   echo "Sem registro nesta tabela";
 } $conn->close();?>
-     </tbody>
-  </table>
+   
+   </tbody>
+
+<ul class="pagination pagination-sm">
+
+  <?php if ($p > 1) { ?>
+  <li class="page-item"><a class="page-link" href="?p=<?=$p-1?>">Anterior</a></li>
+  <?php } ?>
+
+
+  <?php for ($i=1;$i<=$num_paginas;$i++) {
+    $estilo = "" ;
+    if ($p == $i) $estilo = "active" ?>  
+  <li class="page-item <?=$estilo;?>"><a class="page-link" href="?p=<?=$i?>"><?=$i?></a></li>
+  <?php } ?>
+
+  <?php if ($p < $num_paginas) { ?>
+  <li class="page-item"><a class="page-link" href="index.php?p=<?=$p+1?>">Próximo</a></li>
+  <?php } ?>
+
+</ul>
+
+</table>

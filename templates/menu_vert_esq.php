@@ -16,10 +16,10 @@
           </li> 
           <li class="nav-item"><a href="/mapas" class="nav-link"><i class="fas fa-map"></i>  MAPAS</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link" href="?page=vtr"><i class='fas fa-ambulance'></i>  VEÍCULOS</a>
+            <a class="nav-link" href="/veiculos"><i class='fas fa-ambulance'></i>  VEÍCULOS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?page=pessoas"><i class='fas fa-users'></i>  PESSOAS</a>
+            <a class="nav-link" href="/pessoas"><i class='fas fa-users'></i>  PESSOAS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><i class='far fa-file-alt'></i>  RELATÓRIOS</a>

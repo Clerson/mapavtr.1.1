@@ -1,8 +1,15 @@
 <?php
     include "../conexao.php";
 
-       
-    $sql = "SELECT * FROM mapas ORDER BY idmapa DESC";
+    $sql = "SELECT * FROM mapas ORDER BY idmapa DESC "; 
+
+    $itens_por_pagina = 15;
+
+    $p = (isset($_GET['p']))?$_GET['p']:1;
+
+    $inicio = ($itens_por_pagina*$p)-$itens_por_pagina;
+
+    $sql_lim = $sql."LIMIT $inicio, $itens_por_pagina"; 
     
         if(!empty($_GET['idmapa'])) {
 
@@ -11,14 +18,37 @@
             
         }
 
+       if(!empty($_POST['fdata'])) {
+
+            $fdata = $_POST['fdata'];
+            $fdata2 = date('Y-m-d H:i:s', strtotime($fdata));
+            $sql_lim = "SELECT * FROM mapas WHERE data LIKE '%$fdata2'";
+
+        }
+
     $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
+    $result_lim = mysqli_query($conn, $sql_lim);
+    $row = mysqli_fetch_assoc($result_lim);
+    
+
+
+    $num_total =  mysqli_num_rows($result);
+
+    $num_paginas = ceil($num_total/$itens_por_pagina);
+
+    // $idmapa = $row['idmapa'];
+    // $ala = $row["ala"];
+    // $idchefe = $row["idchefe"];
+    // $idofdia = $row["idofdia"];
+    // $idtelefonista = $row["idtelefonista1"];
+    // $idtelefonista2 = $row["idtelefonista2"];
+    // $data = $row['data']; 
 
 // --------------------------------------------------------------------------------- 
 
 if(!empty($_POST['acao'])) {
 
-        $idmapa = $_POST['idmapa'];
+        $acao = $_POST['acao'];
         $ala = $_POST["ala"];
         $idofdia = $_POST["idofdia"];
         $idchefe = $_POST["idchefe"];
@@ -58,10 +88,16 @@ if(!empty($_POST['acao'])) {
     if($acao == 'insertmapa') {
         
         $sql = "INSERT INTO mapas(ala, idofdia, idchefe, idtelefonista1, idtelefonista2, data)
-        VALUES ('$ala', $idofdia, $idchefe, $idtelefonista1, $idtelefonista2, '$date')";
+        VALUES ('$ala', $idofdia, $idchefe, $idtelefonista1, $idtelefonista2, '$data')";
 
           if ($conn->query($sql) === TRUE) {
-                    echo " 
+            $mapa_ultimo_registro = $conn->insert_id;
+                    
+
+
+                  // echo "<script>alert('Novo registro inserido com sucesso');</script>";
+                  echo "<script>location.href='/mapadet/index.php?idmapa=".$mapa_ultimo_registro."'</script>";
+                  echo " 
                     <div class='conteiner-fluid text-center p-2'>
                     <button class='btn btn-primary' disabled>
                     <span class='spinner-border spinner-border-sm'></span>
@@ -69,12 +105,10 @@ if(!empty($_POST['acao'])) {
                     </button>
                     </div>
                     ";
-
-                  // echo "<script>alert('Novo registro inserido com sucesso');</script>";
-                  echo "<script>location.href='/mapadet/index.php?idmapa=".$mapa_ultimo_registro."'</script>";
                 } else {
                   echo "Error: " . $sql . "<br>" . $conn->error;
                 }
+                exit;
 
 
 
@@ -82,11 +116,8 @@ if(!empty($_POST['acao'])) {
     }
 
      if($acao == 'updatemapa') {
-
+        $idmapa = $_POST['idmapa'];
         $sql = "UPDATE mapas SET ala='$ala', idofdia=$idofdia, idchefe=$idchefe, idtelefonista1=$idtelefonista1,  idtelefonista2=$idtelefonista2, data='$date' WHERE idmapa=$idmapa";
-
-          if ($conn->query($sql) === TRUE) {
-                $mapa_ultimo_registro = $conn->insert_id;
                     echo " 
                     <div class='conteiner-fluid text-center p-2'>
                     <button class='btn btn-primary' disabled>
@@ -95,6 +126,9 @@ if(!empty($_POST['acao'])) {
                     </button>
                     </div>
                     ";
+          if ($conn->query($sql) === TRUE) {
+                
+
 
                   // echo "<script>alert('Novo registro inserido com sucesso');</script>";
                   echo "<script>location.href='/mapadet/index.php?idmapa=".$idmapa."'</script>";

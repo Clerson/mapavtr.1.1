@@ -1,21 +1,8 @@
-<div class="modal fade" id="updatemapa<?php echo $idmapa ;?>">
-  <div class="modal-dialog">
-    <div class="modal-content">
+<?php include "_head.php"; ?>
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title"><i class="fas fa-map"></i> Editando o Mapa #<?php echo $idmapa ;?></h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
+    <form action="model.php" method="POST" class="row gx-3 gy-2 text-center">
 
-      <!-- Modal body -->
-      <div class="modal-body">
-
-      <form action="model.php" method="POST" class="row gx-3 gy-2 text-center">
-
-        <div class="form-floating">
-        <h4><i class='fas fa-bookmark'></i> Selecione a Ala</h4> <!-- ALA DO SERVIÇO -->
-
+      <div class="form-floating">
  
         <div class="form-check-inline">
           <input type="radio" class="btn-check" name="ala" id="option1" autocomplete="off" value="Alpha" required <?php if ($ala == 'Alpha') echo "checked";?>>
@@ -39,15 +26,12 @@
 
     </div>
 
-  <div class="row gx-3 gy-2 text-center">
-      <div class="form-floating col-sm"> <!-- DATA DO SERVIÇO -->
+      <div class="form-floating"> <!-- DATA DO SERVIÇO -->
       <input type="date" class="form-control" name="data" placeholder="Data do serviço" value="<?php echo date('Y-m-d', strtotime($data));?>"  required>
       <label for="data">Data do serviço:</label>
      </div>
-  </div>
 
- <div class="row gx-3 gy-2 text-center">
-      <div class="form-floating col-sm"> <!-- OFICIAL DE DIA -->
+      <div class="form-floating"> <!-- OFICIAL DE DIA -->
         <input class="form-control" list="idofdia" name="idofdia" placeholder="idofdia" required>
           <datalist id="idofdia">
             <?php
@@ -66,7 +50,7 @@
     </div>
 
 
-    <div class="form-floating col-sm"> <!-- CHEFE DO SERVIÇO DE DIA -->
+    <div class="form-floating"> <!-- CHEFE DO SERVIÇO DE DIA -->
        <input class="form-control" list="idchefe"  name="idchefe" placeholder="idchefe" required>
           <datalist id="idchefe">
             <option value="<?php echo $idchefe;?>">
@@ -84,10 +68,10 @@
 
           </datalist>
     <label for="idchefe">Chefe de Socorro:</label>
-</div>
+  </div>
 
-  <div class="row gx-3 gy-2 text-center">
-    <div class="form-floating col-sm"> <!-- TELEFONISTA 1 -->
+
+    <div class="form-floating"> <!-- TELEFONISTA 1 -->
 
       <input class="form-control" list="idtelefonista1" name="idtelefonista1" placeholder="idtelefonista1" required>
           <datalist id="idtelefonista1">
@@ -110,10 +94,8 @@
           </datalist>
       <label for="idtelefonista1">Telefonista 1:</label>
     </div>
-  
 
-
-  <div class="form-floating col-sm"> <!-- TELEFONISTA 2 -->
+  <div class="form-floating"> <!-- TELEFONISTA 2 -->
 
        <input class="form-control" list="idtelefonista2" name="idtelefonista2" placeholder="idtelefonista2" required>
           <datalist id="idtelefonista2">
@@ -137,25 +119,14 @@
     <label for="idtelefonista2">Telefonista 2:</label>
   </div>
 
-</div>
   
-  <input type="number" name="idmapa" value="<?php echo $idmapa;?>" hidden>
+    <input type="number" name="idmapa" value="<?php echo $idmapa;?>" hidden>
 
-  <button type="submit" class="btn btn-primary" name="acao" value="updatemapa">Enviar</button>
-</div>
+  <div class="form-floating">
+    <button type="submit" class="btn btn-primary" name="acao" value="updatemapa">Enviar</button>
+  </div>
 
 </form>
         
 
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!------------------- Fim do Modal -->
+<?php include '../templates/footer.php'; ?>

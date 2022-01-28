@@ -1,6 +1,5 @@
 <?php
 
-$vtrid = $vtrpref = $vtrtipo = $vtrmarcamod = $vtrano = $vtrstatus = $vtrimg = "";
 
 $sql_vtr = "SELECT * FROM vtr ORDER BY vtrtipo ASC";
 
@@ -16,13 +15,13 @@ $sql_vtr = "SELECT * FROM vtr ORDER BY vtrtipo ASC";
       $sql_vtr = "SELECT * FROM vtr, detmapa WHERE idvtr = vtrid AND vtrid = $vtrid";   
   }
 
-	// if (isset($_GET['iddetmp']) ) { 
+    if (!empty($_POST['vtrstatus'])) {
+      
+      $vtrstatus = $_POST['vtrstatus'];
+      $sql_vtr = "SELECT * FROM vtr WHERE vtrstatus = '$vtrstatus'";   
+  }
 
-	// 		$iddetmp = $_GET['iddetmp']; 
- //      $sql_vtr = "SELECT * FROM detmapa, vtr WHERE iddetmp=$iddetmp AND vtrid=idvtr";
-	// 	}
-
-  if (!empty($_GET['idmapa']) ) { 
+	  if (!empty($_GET['idmapa']) ) { 
       $sql_vtr = "SELECT * FROM vtr WHERE vtrstatus='ativa' ORDER BY vtrtipo ASC";
     } // usado na form da index
 
@@ -64,18 +63,18 @@ if (isset($_POST['acao'])) {
     $vtrano = $_POST["vtrano"];
     $vtrstatus = $_POST["vtrstatus"];
 
- if($acao == 'vtrupdate') {    
+     if($acao == 'vtrupdate') {    
 
-  $vtrid = $_POST["vtrid"];
-  $sql = "UPDATE vtr SET vtrpref='$vtrpref', vtrtipo='$vtrtipo', vtrmarcamod='$vtrmarcamod', vtrano='$vtrano', vtrstatus='$vtrstatus' WHERE vtrid=$vtrid";
-}
+      $vtrid = $_POST["vtrid"];
+      $sql = "UPDATE vtr SET vtrpref='$vtrpref', vtrtipo='$vtrtipo', vtrmarcamod='$vtrmarcamod', vtrano='$vtrano', vtrstatus='$vtrstatus' WHERE vtrid=$vtrid";
+    }
 
-if($acao == 'vtrinsert') {
+    if($acao == 'vtrinsert') {
 
-	$sql = "INSERT INTO vtr (vtrpref, vtrtipo, vtrmarcamod, vtrano, vtrstatus)
-	VALUES ('$vtrpref', '$vtrtipo', '$vtrmarcamod', '$vtrano', '$vtrstatus')";
+    	$sql = "INSERT INTO vtr (vtrpref, vtrtipo, vtrmarcamod, vtrano, vtrstatus)
+    	VALUES ('$vtrpref', '$vtrtipo', '$vtrmarcamod', '$vtrano', '$vtrstatus')";
 
-}
+    }
       echo " 
       <div class='conteiner-fluid text-center p-2'>
       <button class='btn btn-primary' disabled>
@@ -86,7 +85,7 @@ if($acao == 'vtrinsert') {
       ";
 
     if ($conn->query($sql) === TRUE) {
-      echo "<script>location.href='?page=vtr'</script>";              
+      echo "<script>location.href='/veiculos'</script>";              
             } else {
               echo "Error: " . $sql . "<br>" . $conn->error;
             }

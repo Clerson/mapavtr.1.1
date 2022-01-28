@@ -92,7 +92,7 @@
         </div>
 
 <div class="form-floating"> 
-      <textarea rows="5" cols="30"class="form-control" name="obs" placeholder="obs">N° RAI:</textarea>
+      <textarea rows="5" cols="30"class="form-control" name="obs" placeholder="obs">RAI:</textarea>
       <label for="obs">Observações:</label>
 </div>
 
