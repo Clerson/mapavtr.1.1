@@ -17,7 +17,7 @@
           <div class="col-sm">
             <form action='model.php' method='POST' class='row gx-2 gy-2 text-center'>
               <div class="row gx-2 gy-2 text-center">
-                <div class="form-floating col-sm-1 me-2">
+                <div class="form-floating col-sm-1 me-2 rounded-cycle">
                   <img src="../pessoas/pessoas_img/<?php echo $row_detmapa['img'];?>" width="55" height="65" class=" shadow-sm">
                 </div>
                 <div class='form-floating ms-3 col-sm'>
@@ -47,7 +47,7 @@
                 <span class="input-group-text">Saída</span>
                 <input type="number" class="form-control"  name="odomsaida"   value="<?php echo $row_detmapa["odomsaida"];?>" placeholder="KM saída">
                 <span class="input-group-text">Chegada</span>
-                <input type="number" class="form-control"  name="odomentr"  value="<?php echo $row_detmapa["odomentr"];?>" placeholder="kM chegada">
+                <input type="number" class="form-control"  name="odomentr" min="<?php echo $row_detmapa["odomsaida"];?>" value="<?php echo $row_detmapa["odomentr"];?>" placeholder="kM chegada">
               </div>
 
               <div class="input-group">
@@ -60,13 +60,15 @@
 
               <div class="col-sm form-floating"> 
                 <select class="form-select" name="destino"  required>
-                  <option value="Ocorrencia" <?php if($row_detmapa['destino'] == 'Ocorrencia') echo 'selected';?>>Ocorrencia</option>
-                  <option value="Ordem de Serviço" <?php if($row_detmapa['destino'] == 'Ordem de Serviço') echo 'selected';?>>Ordem de Serviço</option>
-                  <option value="Ponto Base" <?php if($row_detmapa['destino'] == 'Ponto Base') echo 'selected';?>>Ponto Base</option>
-                  <option value="Abastecimento" <?php if($row_detmapa['destino'] == 'Abastecimento') echo 'selected';?>>Abastecimento</option>
-                  <option value="Vistoria" <?php if($row_detmapa['destino'] == 'Vistorias') echo 'selected';?>>Vistorias</option>
-                  <option value="Oficina" <?php if($row_detmapa['destino'] == 'Oficina') echo 'selected';?>>Oficina</option>
-                  <option value="Outros" <?php if($row_detmapa['destino'] == 'Outros') echo 'selected';?>>Outros</option>
+                  <option value="Abastecimento" <?php if($row_detmapa["destino"] == 'Abastecimento') echo 'selected';?>>Abastecimento</option>
+                  <option value="Ocorrencia" <?php if($row_detmapa["destino"] == 'Ocorrencia') echo 'selected';?>>Ocorrência</option>
+                  <option value="Oficina" <?php if($row_detmapa["destino"] == 'Oficina') echo 'selected';?>>Oficina</option>
+                  <option value="Ordem de Serviço" <?php if($row_detmapa["destino"] == 'Ordem de Serviço') echo 'selected';?>>Ordem de Serviço</option>
+                  <option value="Outros" <?php if($row_detmapa["destino"] == 'Outros') echo 'selected';?>>Outros</option>
+                  <option value="Ponto Base" <?php if($row_detmapa["destino"] == 'Ponto Base') echo 'selected';?>>Ponto Base</option>
+                  <option value="QRF" <?php if($row_detmapa["destino"] == 'QRF') echo 'selected';?>>QRF</option>
+                  <option value="Viagem" <?php if($row_detmapa["destino"] == 'Viagem') echo 'selected';?>>Viagem</option>
+                  <option value="Vistoria" <?php if($row_detmapa["destino"] == 'Vistorias') echo 'selected';?>>Vistorias</option>
                 </select>
                 <label for="destino">Destino:</label>
               </div>
@@ -88,7 +90,7 @@
                 <input type="text" name="idvtr" value="<?php echo $row_detmapa['idvtr'];?>" hidden>
 
               <div class="form-floating">
-                <button type="submit" class="btn btn-primary" name="acao" value="updatemapadet">Enviar</button>
+                <button type="submit" class="btn btn-primary" name="acao" value="updatemapadet">Salvar</button>
               </div>
             </form>
           </div>
@@ -100,10 +102,6 @@
         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#duplicar<?php echo $iddetmp ;?>">
           <i class="fas fa-ambulance"></i> Duplicar
         </button>
-      <!--   <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#excluir<?php echo $iddetmp; ?>">
-          <i class="fas fa-trash"></i> Excluir
-        </button> -->
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>

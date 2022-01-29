@@ -10,7 +10,7 @@
         
     }
 
-    $itens_por_pagina = 15;
+    $itens_por_pagina = 30;
 
     $p = (isset($_GET['p']))?$_GET['p']:1;
 
@@ -119,7 +119,7 @@ if(!empty($_POST['acao'])) {
 
      if($acao == 'updatemapa') {
         $idmapa = $_POST['idmapa'];
-        $sql = "UPDATE mapas SET ala='$ala', idofdia=$idofdia, idchefe=$idchefe, idtelefonista1=$idtelefonista1,  idtelefonista2=$idtelefonista2, data='$date' WHERE idmapa=$idmapa";
+        $sql = "UPDATE mapas SET ala='$ala', idofdia=$idofdia, idchefe=$idchefe, idtelefonista1=$idtelefonista1,  idtelefonista2=$idtelefonista2, data='$data' WHERE idmapa=$idmapa";
                     echo " 
                     <div class='conteiner-fluid text-center p-2'>
                     <button class='btn btn-primary' disabled>

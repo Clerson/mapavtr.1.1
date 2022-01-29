@@ -1,13 +1,13 @@
 <?php include '_head.php';?>
   
-       
-         
-       <?php
+<?php
 
-          $idmapa = $_GET['idmapa'];
-          $sql_detmapa2 = "SELECT idvtr FROM detmapa WHERE idmapa=$idmapa GROUP BY idvtr";
-          $result_detmapa2 = mysqli_query($conn, $sql_detmapa2);
-          $row_detmapa2 = mysqli_fetch_assoc($result_detmapa2);
+   $idmapa = $_GET['idmapa'];
+   $sql_detmapa2 = "SELECT idvtr FROM detmapa WHERE idmapa=$idmapa GROUP BY idvtr";
+   $result_detmapa2 = mysqli_query($conn, $sql_detmapa2);
+   $row_detmapa2 = mysqli_fetch_assoc($result_detmapa2);
+
+   if(mysqli_num_rows($result_detmapa2)) {
 
         do { 
 
@@ -31,9 +31,11 @@
 </div>
     
 
-       <?php } while ($row_detmapa2 = mysqli_fetch_assoc($result_detmapa2)); ?>
+       <?php } while ($row_detmapa2 = mysqli_fetch_assoc($result_detmapa2)); 
 
-<?php include '../templates/footer.php';?>
+} else echo "<h3>Adicione um veículo</h3>"; 
+
+include '../templates/footer.php';?>
 
 <script src="atualizaOdomVtr.js"></script>
 

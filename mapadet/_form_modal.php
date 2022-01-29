@@ -44,28 +44,30 @@
               <div class="input-group"  id='odomentr'>
                 <span class="input-group-text"><i class="fas fa-tachometer-alt"></i></span>
                 <span class="input-group-text">Saída</span>
-                <input type="number" class="form-control"  name="odomsaida"   value="<?=$row_detmapa["odomentr"];?>" placeholder="KM saída">
+                <input type="number" class="form-control"  name="odomsaida"   value="<?=$row_detmapa["odomentr"];?>" placeholder="KM saída" required>
                 <span class="input-group-text">Chegada</span>
-                <input type="number" class="form-control"  name="odomentr"  value="<?=$row_detmapa["odomentr"];?>" placeholder="kM chegada">
+                <input type="number" class="form-control"  name="odomentr"  min="<?=$row_detmapa["odomentr"];?>" value="<?=$row_detmapa["odomentr"];?>" placeholder="kM chegada" required>
               </div>
 
               <div class="input-group">
                 <span class="input-group-text"><i class='far fa-hourglass'></i></span>
                 <span class="input-group-text">Saída</span>
-                <input type="time" class="form-control" name="horasaida"  value="<?=date('H:i');?>" placeholder="Hora saída">
+                <input type="time" class="form-control" name="horasaida"  value="<?=date('H:i');?>" placeholder="Hora saída" required>
                 <span class="input-group-text">Chegada</span>
-                <input type="time" class="form-control"  name="horaentr" value="<?=date('H:i');?>" placeholder="Hora chegada" >
+                <input type="time" class="form-control"  name="horaentr" value="<?=date('H:i');?>" placeholder="Hora chegada" required>
               </div>
 
               <div class="col-sm form-floating"> 
                 <select class="form-select" name="destino"  required>
-                  <option value="Ocorrencia" <?php if($row_detmapa["destino"] == 'Ocorrencia') echo 'selected';?>>Ocorrencia</option>
-                  <option value="Ordem de Serviço" <?php if($row_detmapa["destino"] == 'Ordem de Serviço') echo 'selected';?>>Ordem de Serviço</option>
-                  <option value="Ponto Base" <?php if($row_detmapa["destino"] == 'Ponto Base') echo 'selected';?>>Ponto Base</option>
                   <option value="Abastecimento" <?php if($row_detmapa["destino"] == 'Abastecimento') echo 'selected';?>>Abastecimento</option>
-                  <option value="Vistoria" <?php if($row_detmapa["destino"] == 'Vistorias') echo 'selected';?>>Vistorias</option>
+                  <option value="Ocorrencia" <?php if($row_detmapa["destino"] == 'Ocorrencia') echo 'selected';?>>Ocorrência</option>
                   <option value="Oficina" <?php if($row_detmapa["destino"] == 'Oficina') echo 'selected';?>>Oficina</option>
+                  <option value="Ordem de Serviço" <?php if($row_detmapa["destino"] == 'Ordem de Serviço') echo 'selected';?>>Ordem de Serviço</option>
                   <option value="Outros" <?php if($row_detmapa["destino"] == 'Outros') echo 'selected';?>>Outros</option>
+                  <option value="Ponto Base" <?php if($row_detmapa["destino"] == 'Ponto Base') echo 'selected';?>>Ponto Base</option>
+                  <option value="QRF" <?php if($row_detmapa["destino"] == 'QRF') echo 'selected';?>>QRF</option>
+                  <option value="Viagem" <?php if($row_detmapa["destino"] == 'Viagem') echo 'selected';?>>Viagem</option>
+                  <option value="Vistoria" <?php if($row_detmapa["destino"] == 'Vistorias') echo 'selected';?>>Vistorias</option>
                 </select>
                 <label for="destino">Destino:</label>
               </div>
@@ -91,11 +93,6 @@
             </form>
           </div>
         </div>
-      </div>
-    
-    <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>

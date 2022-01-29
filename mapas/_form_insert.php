@@ -102,12 +102,6 @@
           </div>
       </form>
     </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-      </div>
-
     </div>
   </div>
 </div>

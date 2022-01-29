@@ -44,26 +44,31 @@
             <span class='input-group-text'>Saída:</span>
             <input type='number' class='form-control' name='odomsaida' value='<?=$row_detmapa['odomentr']?>' >
             <span class='input-group-text'>Chegada:</span>
-            <input type='number' class='form-control' id='odomentr' name='odomentr' min=".$odomentr." value='<?=$row_detmapa['odomentr']?>' required>
+            <input type='number' class='form-control' id='odomentr' name='odomentr' min="<?=$row_detmapa['odomentr']?>" value='<?=$row_detmapa['odomentr']?>' required>
           </div>
      
           <div class='input-group'>
-            <span class="input-group-text"><i class='far fa-hourglass'></i></span>
+            <span class="input-group-text"><i class='fa fa-hourglass'></i></span>
             <span class='input-group-text'>Saída:</span>
-            <input type='time' class='form-control' name='horasaida' value='<?php echo date('H:i');?>'  required>
+            <input type='time' class='form-control' name='horasaida' value='<?=date('H:i');?>'  required>
             <span class='input-group-text'>Chegada:</span>
-            <input type='time' class='form-control' name='horaentr' value='<?php echo date('H:i');?>' required>
+            <input type='time' class='form-control' name='horaentr' value='<?=date('H:i');?>' required>
           </div>
             
           <div class="form-floating  col-sm"> 
             <select class="form-select" name="destino"  required>
-              <option value="Ocorrencia">Ocorrencia</option>
-              <option value="Ordem de Serviço">Ordem de Serviço</option>
-              <option value="Ponto Base">Ponto Base</option>
               <option value="Abastecimento">Abastecimento</option>
-              <option value="Vistoria">Vistorias</option>
+              <option value="Ocorrencia">Ocorrência</option>
               <option value="Oficina">Oficina</option>
+              <option value="Ordem de Serviço">Ordem de Serviço</option>
+              <option value="Orçamentos">Orçamentos</option>
               <option value="Outros">Outros</option>
+              <option value="Ponto Base">Ponto Base</option>
+              <option value="QRF">QRF</option>
+              <option value="Viagem">Viagem</option>
+              <option value="Vistoria">Vistorias</option>
+              
+              
             </select>
             <label for="destino">Destino:</label>
           </div>
@@ -81,7 +86,7 @@
             <label for="obs">Observações:</label>
           </div>
 
-          <input type="text" name="idmapa" value="<?php echo $idmapa;?>" hidden>
+          <input type="text" name="idmapa" value="<?=$idmapa;?>" hidden>
 
           <div class="form-floating"> 
             <button type="submit" class="btn btn-primary " name="enviar" value="enviar">Enviar</button>
@@ -89,13 +94,6 @@
         
         </form>
       </div>
-    </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
-      </div>
-
     </div>
   </div>
 </div>
