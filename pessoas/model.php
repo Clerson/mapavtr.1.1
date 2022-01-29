@@ -1,6 +1,7 @@
 <?php
    include "../conexao.php";
 
+
    $sql_pessoas = "SELECT * FROM pessoas";
     
   //   if (!empty($_POST['pstatus'])) {

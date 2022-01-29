@@ -1,5 +1,5 @@
 <?php
-
+   include "../conexao.php";
 
 $sql_vtr = "SELECT * FROM vtr ORDER BY vtrtipo ASC";
 
@@ -75,16 +75,9 @@ if (isset($_POST['acao'])) {
     	VALUES ('$vtrpref', '$vtrtipo', '$vtrmarcamod', '$vtrano', '$vtrstatus')";
 
     }
-      echo " 
-      <div class='conteiner-fluid text-center p-2'>
-      <button class='btn btn-primary' disabled>
-      <span class='spinner-border spinner-border-sm'></span>
-      Carregando... 
-      </button>
-      </div>
-      ";
 
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql) === TRUE) {      
+
       echo "<script>location.href='/veiculos'</script>";              
             } else {
               echo "Error: " . $sql . "<br>" . $conn->error;

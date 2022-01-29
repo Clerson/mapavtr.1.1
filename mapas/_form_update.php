@@ -5,29 +5,29 @@
       <div class="form-floating">
  
         <div class="form-check-inline">
-          <input type="radio" class="btn-check" name="ala" id="option1" autocomplete="off" value="Alpha" required <?php if ($ala == 'Alpha') echo "checked";?>>
+          <input type="radio" class="btn-check" name="ala" id="option1" autocomplete="off" value="Alpha" required <?php if ($row['ala'] == 'Alpha') echo "checked";?>>
           <label class="btn btn-outline-primary" for="option1">Alpha</label>
         </div>
 
         <div class="form-check-inline">
-          <input type="radio" class="btn-check" name="ala" id="option2" autocomplete="off" value="Bravo" required <?php if ($ala == 'Bravo') echo "checked";?>>
+          <input type="radio" class="btn-check" name="ala" id="option2" autocomplete="off" value="Bravo" required <?php if ($row['ala'] == 'Bravo') echo "checked";?>>
           <label class="btn btn-outline-primary" for="option2">Bravo</label>
         </div>
 
         <div class="form-check-inline">
-          <input type="radio" class="btn-check" name="ala" id="option3" autocomplete="off" value="Charlie" required <?php if ($ala == 'Charlie') echo "checked";?>>
+          <input type="radio" class="btn-check" name="ala" id="option3" autocomplete="off" value="Charlie" required <?php if ($row['ala'] == 'Charlie') echo "checked";?>>
           <label class="btn btn-outline-primary" for="option3">Charlie</label>
         </div>
 
         <div class="form-check-inline">
-          <input type="radio" class="btn-check" name="ala" id="option4" autocomplete="off" value="Delta" required <?php if ($ala == 'Delta') echo "checked";?>>
+          <input type="radio" class="btn-check" name="ala" id="option4" autocomplete="off" value="Delta" required <?php if ($row['ala'] == 'Delta') echo "checked";?>>
           <label class="btn btn-outline-primary" for="option4">Delta</label>
         </div>
 
     </div>
 
       <div class="form-floating"> <!-- DATA DO SERVIÇO -->
-      <input type="date" class="form-control" name="data" placeholder="Data do serviço" value="<?php echo date('Y-m-d', strtotime($data));?>"  required>
+      <input type="date" class="form-control" name="data" placeholder="Data do serviço" value="<?php echo date('Y-m-d', strtotime($row['data']));?>"  required>
       <label for="data">Data do serviço:</label>
      </div>
 

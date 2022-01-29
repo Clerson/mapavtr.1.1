@@ -1,20 +1,20 @@
-<div class="modal fade" id="insertpessoa">
+<div class="modal fade" id="insert">
   <div class="modal-dialog" >
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title"><i class="fas fa-user-plus"></i>Incluindo Pessoas</h4>
+      <div class="modal-header bg-info">
+        <h4 class="modal-title"><i class="fas fa-user-plus"></i> Adicionar Pessoas</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-        <div class="row">
+        <div class="row gx-1 gy-1 text-center">
           <div class="col-sm">
 
-          <form action="?page=pessoas_model" method="POST">
-              <div class="form-floating mb-3 mt-3"> 
+          <form action="model.php" method="POST" class="row gx-3 gy-2 text-center">
+              <div class="form-floating"> 
                    <input class="form-control" list="grad" name="grad" placeholder="grad" required>
                       <datalist id="grad">
                         <option value="Cel QOC">
@@ -39,32 +39,32 @@
                 <div class="valid-feedback">Válido</div>
             </div>
 
-            <div class="form-floating mb-3 mt-3">   
+            <div class="form-floating">   
                 <input type="text" class="form-control" name="rg" placeholder="numero do RG"   required>
                 <label for="rg">RG:</label>
                 <div class="valid-feedback">Válido</div>
             </div>
 
-            <div class="form-floating mb-3 mt-3"> 
+            <div class="form-floating"> 
                 <input type="text" class="form-control" name="nomeguerra" placeholder="Nome de guerra" required>
                 <label for="nomeguerra">Nome de Guerra:</label>
                 <div class="valid-feedback">Válido</div>
             </div>
 
 
-            <div class="form-floating mb-3 mt-3"> 
+            <div class="form-floating"> 
                   <input type="text" class="form-control" name="nome" placeholder="Nome completo"  required>
                   <label for="nome">Nome Completo:</label>
                   <div class="valid-feedback">Válido</div>
             </div>
 
-            <div class="form-floating mb-3 mt-3"> 
+            <div class="form-floating"> 
                   <input type="text" class="form-control" name="contato" placeholder="Contato"  required>
                   <label for="contato">Contato:</label>
                   <div class="valid-feedback">Válido</div>
             </div>
 
-            <div class="form-floating mb-3 mt-3">
+            <div class="form-floating">
                
                 <select class="form-select"  name="pstatus" placeholder="Status" required>
                   <option value="s">Ativa</option>
@@ -73,7 +73,10 @@
                 <label for="pstatus">Status:</label>
             </div>
 
+            <div class="form-floating">
               <button type="submit" class="btn btn-primary mt-3" name="acao" value="pessoasinsert">Enviar</button>
+            </div>
+
             </form>
  
 

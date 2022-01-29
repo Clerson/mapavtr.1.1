@@ -1,19 +1,19 @@
-<div class="modal fade" id="insertvtr">
+<div class="modal fade" id="insert">
   <div class="modal-dialog" >
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
+      <div class="modal-header bg-info">
         <h4 class="modal-title"><i class="fas fa-truck"></i> Inserindo Novo Veículo</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-        <div class="row">
+        <div class="row gx-1 gy-1 text-center">
           <div class="col-sm">
 
-            <form action='?page=vtr_model' method='POST' class='row gx-3 gy-2 align-items-center'>
+            <form action='model.php' method='POST' class='row gx-1 gy-1 text-center'>
 
               <div class="input-group">
                 <span class="input-group-text">Nomenclatura</span>
@@ -38,8 +38,10 @@
                   <option value="INATIVA">Inativa</option>
                 </select>
               </div>
-
-              <button type="submit" class="btn btn-primary " name="acao" value="vtrinsert">Enviar</button>
+            
+              <div class="form-floating">
+                <button type="submit" class="btn btn-primary " name="acao" value="vtrinsert">Enviar</button>
+              </div>
             </form>
 
         </div>

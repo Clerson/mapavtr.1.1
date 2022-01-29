@@ -7,7 +7,7 @@ include 'model.php';
     ?>
 
     <div class='container1 col-sm-2 m-0 shadow-sm rounded-3'>
-      <a href='#' data-bs-toggle="modal" data-bs-target="#updatepessoa<?php echo $row_pessoas["codmil"];?>">
+      <a href='#' data-bs-toggle="modal" data-bs-target="#updatepessoa<?=$row_pessoas['codmil']?>">
         <img class="image"  src="pessoas_img/<?php echo $row_pessoas["img"];?>" alt="Card image" width="200" height="200">
         <div class="middle">
           <div class="vtrtitle"><?php echo $row_pessoas["grad"]."<b> ".$row_pessoas["nomeguerra"]." <br/>".$row_pessoas["rg"];?></b></div>

@@ -1,16 +1,9 @@
-
-
+<div class="row sticky-top">
+  <div class="col-sm">
+      <a href="index.php"><img src="../img/img_topo.png" width="100%"  class="bg-white"></a>
       <nav class="navbar navbar-expand-sm navbar-light p-0">
         <ul class="navbar-nav flex-column">
           <li class="nav-item"></li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <form class="d-flex">
-                <input class="form-control me-2 small" type="text" placeholder="Pesquisar">
-                <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
-              </form>
-            </a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="/"><i class='fas fa-home'></i>  INÍCIO</a>
           </li> 
@@ -20,7 +13,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/pessoas"><i class='fas fa-users'></i>  PESSOAS</a>
-          </li>
+<!--           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><i class='far fa-file-alt'></i>  RELATÓRIOS</a>
           </li>
@@ -29,7 +22,8 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><i class='fas fa-globe-americas'></i> LINKS ÚTEIS</a>
-          </li>
+          </li> -->
         </ul>
     </nav>
-
+  </div>
+</div>

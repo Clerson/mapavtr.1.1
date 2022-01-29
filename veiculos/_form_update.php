@@ -3,8 +3,8 @@
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">#<?=$vtrid; ?> <i class="fas fa-truck"></i> <?=$vtrtipo; ?></h4>
+      <div class="modal-header bg-warning">
+        <h4 class="modal-title">Editando o registro #<?=$vtrid; ?> <i class="fas fa-truck"></i> <?=$vtrtipo; ?></h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -12,10 +12,9 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-sm-5"><img class="card-img-top" src="vtrimg/<?=$vtrimg; ?>" alt="Card image"></div>
-          <div class="col-sm">
 
-            <form action='?page=vtr_model' method='POST' class='row gx-3 gy-2 align-items-center'>
-              
+          <div class="col-sm">
+            <form action='?page=vtr_model' method='POST' class='row gx-1 gy-1 text-center'>
               <div class="input-group">
                 <span class="input-group-text">Nomenclatura</span>
                 <input type="text" class="form-control" name="vtrtipo" value="<?=$vtrtipo; ?>" placeholder="Nomenclatura" >
@@ -32,7 +31,7 @@
                 <span class="input-group-text">Ano de fabricação</span>
                 <input type="number" class="form-control"  name="vtrano"  value="<?=$vtrano;?>" placeholder="Ano de fabricação">
               </div>
-                            <div class="input-group">
+              <div class="input-group">
                 <span class="input-group-text">Status</span>
                 <select class="form-select"  name="vtrstatus"  value="<?=$vtrstatus;?>" placeholder="Status">
                   <option value="ATIVA" <?php if($vtrstatus == 'ATIVA') echo 'selected';?>>Ativa</option>
@@ -40,8 +39,10 @@
                 </select>
               </div>
               <input type="text" name="vtrid" value="<?=$vtrid;?>" hidden>
-
-              <button type="submit" class="btn btn-primary " name="acao" value="vtrupdate">Enviar</button>
+              
+              <div class="form-floating">
+                <button type="submit" class="btn btn-primary " name="acao" value="vtrupdate">Enviar</button>
+              </div>
             </form>
 
         </div>
@@ -54,8 +55,8 @@
       <div class="modal-footer">
 <!--         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#excluir<?=$vtrtipo; ?>">
           <i class='fas fa-trash'></i>
-        </button>
- -->        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+        </button> -->
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
       </div>
 
     </div>

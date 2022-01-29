@@ -32,7 +32,7 @@
     $result_lim = mysqli_query($conn, $sql_lim);
     $row = mysqli_fetch_assoc($result_lim);
     
-
+    $sql_pessoas = "SELECT codmil, nomeguerra FROM pessoas WHERE pstatus = 's' ORDER BY nomeguerra ASC";
 
     $num_total =  mysqli_num_rows($result);
 

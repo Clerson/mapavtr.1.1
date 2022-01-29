@@ -80,14 +80,7 @@ if (!empty($_POST['idmapa'])) {
 
 
     if ($conn->query($sql_acao) === TRUE) {            
-        echo " 
-            <div class='conteiner-fluid text-center p-2'>
-            <button class='btn btn-primary' disabled>
-            <span class='spinner-border spinner-border-sm'></span>
-            Carregando... 
-            </button>
-            </div>
-            ";
+ 
       echo "<script>location.href='analit.php?idmapa=".$idmapa."&idvtr=".$idvtr."'</script>";
     } else {
       echo "Error: " . $sql_acao . "<br>" . $conn->error;

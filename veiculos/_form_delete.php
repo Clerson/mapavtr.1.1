@@ -3,7 +3,7 @@
     <div class="modal-content">
 
       <!-- Modal Header -->
-      <div class="modal-header">
+      <div class="modal-header bg-danger">
         <h4 class="modal-title">Excluir <?php echo $vtrtipo; ?></h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
