@@ -20,7 +20,7 @@
 
                  <?php if(!empty($row_detmapa['img'])) { ?>
                 <div class="form-floating col-sm-1 me-3">
-                    <img src="../pessoas/pessoas_img/<?=$row_detmapa['img'];?>" width="55" height="65" class=" shadow-sm">
+                    <img src="../pessoas/pessoas_img/<?=$row_detmapa['img'];?>" width="55" height="65" class=" shadow-sm rounded-circle">
                 </div>
                 <?php } ;?>
 
