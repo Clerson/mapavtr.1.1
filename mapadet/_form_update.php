@@ -17,8 +17,8 @@
           <div class="col-sm">
             <form action='model.php' method='POST' class='row gx-2 gy-2 text-center'>
               <div class="row gx-2 gy-2 text-center">
-                <div class="form-floating col-sm-1 me-2 rounded-cycle">
-                  <img src="../pessoas/pessoas_img/<?php echo $row_detmapa['img'];?>" width="55" height="65" class=" shadow-sm">
+                <div class="form-floating col-sm-1 me-2">
+                  <img src="../pessoas/pessoas_img/<?php echo $row_detmapa['img'];?>" width="55" height="65" class=" shadow-sm rounded-circle">
                 </div>
                 <div class='form-floating ms-3 col-sm'>
                   <select class='form-select' name='pessoa' required>
