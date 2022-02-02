@@ -23,7 +23,7 @@ do {
       </a>
       <div class="bg-light text-center rounded" style="font-size: 12px;">
         <i class="fas fa-route"></i> <?=$row_detmapa['destino']?> <br/>
-        <i class="far fa-clock"></i> <?=date('H:i', strtotime($row_detmapa['horasaida']))."h - ".date('H:i', strtotime($row_detmapa['horaentr']))."h" ;?>
+        <i class="far fa-clock"></i> <?=date('H:i', strtotime($row_detmapa['horasaida']))."h / ".date('H:i', strtotime($row_detmapa['horaentr']))."h" ;?>
       </div>
 
     </div>

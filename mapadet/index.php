@@ -1,8 +1,7 @@
-<?php include '_head.php';?>
-  
-<?php
+<?php include '_head.php';
 
-   $idmapa = $_GET['idmapa'];
+
+   $idmapa = $_SESSION['idmapa'];
    $sql_detmapa2 = "SELECT idvtr FROM detmapa WHERE idmapa=$idmapa GROUP BY idvtr";
    $result_detmapa2 = mysqli_query($conn, $sql_detmapa2);
    $row_detmapa2 = mysqli_fetch_assoc($result_detmapa2);
@@ -33,7 +32,7 @@
 
        <?php } while ($row_detmapa2 = mysqli_fetch_assoc($result_detmapa2)); 
 
-} else echo "<h3>Adicione um veículo</h3>"; 
+} else echo "<h3>Selecione um veículo</h3>"; 
 
 include '../templates/footer.php';?>
 

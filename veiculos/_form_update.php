@@ -53,9 +53,9 @@
 
     <!-- Modal footer -->
       <div class="modal-footer">
-<!--         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#excluir<?=$vtrtipo; ?>">
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#excluir<?=$vtrtipo; ?>">
           <i class='fas fa-trash'></i>
-        </button> -->
+        </button>
         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
       </div>
 

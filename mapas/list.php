@@ -83,7 +83,7 @@
 
         <td><?=date('d/m/y', (strtotime($row["data"])));?></td>
         <td><a href="_form_update.php?idmapa=<?=$row['idmapa'] ;?>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></a> 
-          <a href="/mapadet/index.php?idmapa=<?=$row['idmapa'];?>" class="btn btn-primary"><i class="fas fa-folder-open"></i></a></td>
+          <a href="/mapadet/?idmapa=<?=$row['idmapa'];?>" class="btn btn-primary"><i class="fas fa-folder-open"></i></a></td>
       </tr>
 
 

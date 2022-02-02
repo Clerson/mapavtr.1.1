@@ -6,9 +6,9 @@ require '../conexao.php';
 
 $sql_detmapa = "SELECT * FROM detmapa ORDER BY iddetmp DESC";
 
-  if(isset($_GET['idmapa'])) {
+  if(isset($_SESSION['idmapa'])) {
 
-     $idmapa = $_GET['idmapa'];
+     $idmapa = $_SESSION['idmapa'];
 
      $sql_detmapa = "SELECT idvtr FROM detmapa WHERE idmapa=$idmapa GROUP BY idvtr";  
     
