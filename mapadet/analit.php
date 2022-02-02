@@ -8,24 +8,23 @@
 
 do { 
 
-    $iddetmp = $row_detmapa['iddetmp'];
-    $destino = $row_detmapa['destino'];
-    $obs = $row_detmapa['obs'];
-
     if($row_detmapa['detmp_status'] == 'aberta') {
 
-      echo "<div class='col-sm-2 m-1 p-1 shadow rounded-3'>";
+      echo "<div class='col-sm-2 m-1 p-1 shadow rounded'>";
     }
 
-    else echo "<div class='col-sm-2 m-1 p-1 rounded-3 bg-secondary'>";   
+    else echo "<div class='col-sm-2 m-1 p-1 rounded bg-secondary'>";   
 
     ;?>  
 
-      <a href="#" data-bs-toggle="modal" data-bs-target="#iddetmp<?=$iddetmp ;?>">
-        <div class="btn-warning p-2 text-center rounded-3"><?=$row_detmapa["vtrtipo"]; ?></div>
+      <a href="#" data-bs-toggle="modal" data-bs-target="#iddetmp<?=$row_detmapa['iddetmp'] ;?>">
+        <div class="btn-warning p-2 text-center rounded"><?=$row_detmapa["vtrtipo"]; ?></div>
         <img  src="../veiculos/vtrimg/<?=$row_detmapa["vtrimg"]; ?>" width="100%">
       </a>
-      <span><i class="fas fa-route"></i> <?=$destino?></span>
+      <div class="bg-light text-center rounded" style="font-size: 12px;">
+        <i class="fas fa-route"></i> <?=$row_detmapa['destino']?> <br/>
+        <i class="far fa-clock"></i> <?=date('H:i', strtotime($row_detmapa['horasaida']))."h - ".date('H:i', strtotime($row_detmapa['horaentr']))."h" ;?>
+      </div>
 
     </div>
 

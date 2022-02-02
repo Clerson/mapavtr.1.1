@@ -99,8 +99,8 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#duplicar<?php echo $iddetmp ;?>">
-          <i class="fas fa-ambulance"></i> Duplicar
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#duplicar<?php echo $row_detmapa['iddetmp'] ;?>">
+          <i class="fas fa-ambulance"></i> Nova Rota
         </button>
       </div>
     </div>

@@ -1,6 +1,7 @@
-<?php 
+<?php require_once "../mapas/model.php";?>
 
-require_once "../mapas/model.php";?>
+
+
 
 
 <li class="nav-item dropdown btn-light shadow-sm rounded-2">
@@ -79,12 +80,6 @@ require_once "../mapas/model.php";?>
       </a>
    </li>
    </ul>
-      <li>
-      <a class="dropdown-item" href="#"> 
-         Data:
-         <b><?php echo date('d/m/y', strtotime($row['data']));?></b>
-      </a>
-   </li>
 </li>
 
 
