@@ -33,7 +33,7 @@
                 $result_vtr = mysqli_query($conn, $sql_vtr);
                 $row_vtr = mysqli_fetch_assoc($result_vtr);
                do { ?> 
-                <option value='<?=$row_vtr["vtrid"]?>'><?=$row_vtr["vtrtipo"]?></option>
+                <option value='<?=$row_vtr["vtrid"]?>' <?php if(!empty($idvtr)) echo "selected";?>><?=$row_vtr["vtrtipo"]?></option>
               <?php } while ($row_vtr = mysqli_fetch_assoc($result_vtr)) ?>
             </select>
             <label for='destino'>Veículo:</label>

@@ -47,7 +47,7 @@
                 <span class="input-group-text">Saída</span>
                 <input type="number" class="form-control"  name="odomsaida"   value="<?php echo $row_detmapa["odomsaida"];?>" placeholder="KM saída">
                 <span class="input-group-text">Chegada</span>
-                <input type="number" class="form-control"  name="odomentr" min="<?php echo $row_detmapa["odomsaida"];?>" value="<?php echo $row_detmapa["odomentr"];?>" placeholder="kM chegada">
+                <input type="number" class="form-control bg-warning"  name="odomentr" min="<?php echo $row_detmapa["odomsaida"];?>" value="<?php echo $row_detmapa["odomentr"];?>" placeholder="kM chegada">
               </div>
 
               <div class="input-group">
@@ -55,7 +55,7 @@
                 <span class="input-group-text">Saída</span>
                 <input type="time" class="form-control" name="horasaida"  value="<?php echo $row_detmapa["horasaida"];?>" placeholder="Hora saída">
                 <span class="input-group-text">Chegada</span>
-                <input type="time" class="form-control"  name="horaentr" value="<?php echo $row_detmapa["horaentr"];?>" placeholder="Hora chegada" >
+                <input type="time" class="form-control bg-warning"  name="horaentr" value="<?php echo $row_detmapa["horaentr"];?>" placeholder="Hora chegada" >
               </div>
 
               <div class="col-sm form-floating"> 
@@ -99,9 +99,8 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#duplicar<?php echo $row_detmapa['iddetmp'] ;?>">
-          <i class="fas fa-ambulance"></i> Nova Rota
-        </button>
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#duplicar<?php echo $row_detmapa['iddetmp'] ;?>"><i class="fas fa-ambulance"></i> Nova Rota</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>
