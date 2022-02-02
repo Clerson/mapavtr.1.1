@@ -1,4 +1,8 @@
-<?php include "../templates/header.php";?>
+<?php include "../templates/header.php";
+
+$_SESSION['idmapa'] = $_REQUEST['idmapa'];
+
+?>
       <li class="nav-item"><a href='index.php?idmapa=<?=$idmapa?>' class='btn btn-light shadow-sm'><i class="fas fa-home"></i> Início</a></li>
       <li class="nav-item ms-2"><?php include "../mapas/mapadet_lista.php";?></li>
       </li>

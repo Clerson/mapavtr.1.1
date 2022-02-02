@@ -10,8 +10,8 @@
 <link rel="stylesheet" type="text/css" href="../css/index.css">
 </head>
 
-<?php 
-session_start();
+<?php
+session_start(); 
 include "../conexao.php";
 include "model.php";
 include "_form_insert.php";

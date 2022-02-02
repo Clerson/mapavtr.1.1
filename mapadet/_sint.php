@@ -3,7 +3,7 @@
 
         
 
-          $idmapa = $_SESSION['idmapa'];
+          $idmapa = $_GET['idmapa'];
           $sql_detmapa2 = "SELECT idvtr FROM detmapa WHERE idmapa=$idmapa GROUP BY idvtr";
           $result_detmapa2 = mysqli_query($conn, $sql_detmapa2);
           $row_detmapa2 = mysqli_fetch_assoc($result_detmapa2);
