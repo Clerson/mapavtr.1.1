@@ -9,16 +9,13 @@ $sql_detmapa = "SELECT * FROM detmapa ORDER BY iddetmp DESC";
      $idmapa = $_SESSION['idmapa'];
 
      $sql_detmapa = "SELECT idvtr FROM detmapa WHERE idmapa=$idmapa GROUP BY idvtr";  
-            $idvtr = $row_detmapa['idvtr']; 
-        $sql_vtr_m = "SELECT * FROM vtr WHERE vtrid = $idvtr AND vtrstatus='ativa' ORDER BY vtrtipo ASC";
-        $result_vtr_m = mysqli_query($conn, $sql_vtr_m);
+
     ;} 
 
 // FIM DA GET IDMAPA --------- ACESSADO PELA PAGINA "sint.php"
 
   if(isset($_GET['idvtr'])) {
 
-     $iddetmp = "";
      $idvtr = $_GET['idvtr'];
      $sql_detmapa = "SELECT * FROM detmapa, vtr, pessoas  WHERE idmapa = $idmapa AND idvtr = $idvtr AND idvtr = vtrid AND idpessoa = codmil ORDER BY iddetmp DESC ";
   }

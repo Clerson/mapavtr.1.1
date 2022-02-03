@@ -1,7 +1,7 @@
 <?php include '_head.php';
 
 
-   if(mysqli_num_rows($result_detmapa)) {
+   if(mysqli_num_rows($result_detmapa) > 0) {
 
         do { 
 
