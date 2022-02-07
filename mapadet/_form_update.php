@@ -45,7 +45,7 @@
               <div class="input-group">
                 <span class="input-group-text"><i class="fas fa-tachometer-alt"></i></span>
                 <span class="input-group-text">Saída</span>
-                <input type="number" class="form-control"  name="odomsaida"   value="<?php echo $row_detmapa["odomsaida"];?>" placeholder="KM saída">
+                <input type="number" class="form-control"  name="odomsaida"   value="<?php echo $row_detmapa["odomsaida"];?>" placeholder="KM saída" readonly>
                 <span class="input-group-text">Chegada</span>
                 <input type="number" class="form-control bg-warning"  name="odomentr" min="<?php echo $row_detmapa["odomsaida"];?>" value="<?php echo $row_detmapa["odomentr"];?>" placeholder="kM chegada">
               </div>

@@ -39,5 +39,7 @@ include "_form_insert.php";
               <nav class="navbar navbar-expand-sm ">
               <ul class="navbar-nav">
                 <li class="nav-item"><a href='javascript:history.back()' class='btn btn-light shadow-sm me-2'><i class="fas fa-reply"></i> Voltar</a></li>
-                <li class="nav-item me-2"><a href='#' class='btn btn-light' data-bs-toggle="modal" data-bs-target="#insert"><i class="fas fa-plus"></i> Adicionar</a></li>
+                <li class="nav-item me-2">
+                  <div class='btn btn-light' data-bs-toggle="modal" data-bs-target="#insert"><i class="fas fa-plus"></i> Adicionar</div>
+                </li>
                 

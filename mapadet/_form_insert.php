@@ -33,7 +33,7 @@
                 $result_vtr = mysqli_query($conn, $sql_vtr);
                 $row_vtr = mysqli_fetch_assoc($result_vtr);
                do { ?> 
-                <option value='<?=$row_vtr["vtrid"]?>' <?php if(!empty($idvtr)) echo "selected";?>><?=$row_vtr["vtrtipo"]?></option>
+                <option value='<?=$row_vtr["vtrid"]?>'><?=$row_vtr["vtrtipo"]?></option>
               <?php } while ($row_vtr = mysqli_fetch_assoc($result_vtr)) ?>
             </select>
             <label for='destino'>Veículo:</label>
@@ -42,17 +42,17 @@
           <div class='input-group' id='odomentr'>
             <span class='input-group-text'><i class='fas fa-tachometer-alt'></i></span>
             <span class='input-group-text'>Saída:</span>
-            <input type='number' class='form-control' name='odomsaida' value='<?=$row_detmapa['odomentr']?>' >
+            <input type='number' class='form-control' name='odomsaida' readonly>
             <span class='input-group-text'>Chegada:</span>
-            <input type='number' class='form-control' id='odomentr' name='odomentr' min="<?=$row_detmapa['odomentr']?>" value='<?=$row_detmapa['odomentr']?>' required>
+            <input type='number' class='form-control' name='odomentr' readonly>
           </div>
      
           <div class='input-group'>
             <span class="input-group-text"><i class='fa fa-hourglass'></i></span>
             <span class='input-group-text'>Saída:</span>
-            <input type='time' class='form-control' name='horasaida' value='<?=date('H:i');?>'  required>
+            <input type='time' class='form-control' name='horasaida' value='<?=date('H:i');?>' required>
             <span class='input-group-text'>Chegada:</span>
-            <input type='time' class='form-control' name='horaentr' value='<?=date('H:i');?>' required>
+            <input type='time' class='form-control' style='color: gray' name='horaentr' value='<?=date('H:i');?>' readonly>
           </div>
             
           <div class="form-floating  col-sm"> 
