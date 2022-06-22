@@ -42,9 +42,9 @@
           <div class='input-group' id='odomentr'>
             <span class='input-group-text'><i class='fas fa-tachometer-alt'></i></span>
             <span class='input-group-text'>Saída:</span>
-            <input type='number' class='form-control' name='odomsaida' readonly>
+            <input type='number' class='form-control' name='odomsaida' >
             <span class='input-group-text'>Chegada:</span>
-            <input type='number' class='form-control' name='odomentr' readonly>
+            <input type='number' class='form-control' name='odomentr' >
           </div>
      
           <div class='input-group'>
@@ -52,7 +52,7 @@
             <span class='input-group-text'>Saída:</span>
             <input type='time' class='form-control' name='horasaida' value='<?=date('H:i');?>' required>
             <span class='input-group-text'>Chegada:</span>
-            <input type='time' class='form-control' style='color: gray' name='horaentr' value='<?=date('H:i');?>' readonly>
+            <input type='time' class='form-control' style='color: gray' name='horaentr' value='<?=date('H:i');?>' required>
           </div>
             
           <div class="form-floating  col-sm"> 

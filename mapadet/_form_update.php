@@ -45,9 +45,9 @@
               <div class="input-group">
                 <span class="input-group-text"><i class="fas fa-tachometer-alt"></i></span>
                 <span class="input-group-text">Saída</span>
-                <input type="number" class="form-control"  name="odomsaida"   value="<?php echo $row_detmapa["odomsaida"];?>" placeholder="KM saída" readonly>
+                <input type="number" class="form-control"  name="odomsaida" value="<?php echo $row_detmapa["odomsaida"];?>" placeholder="KM saída">
                 <span class="input-group-text">Chegada</span>
-                <input type="number" class="form-control bg-warning"  name="odomentr" min="<?php echo $row_detmapa["odomsaida"];?>" value="<?php echo $row_detmapa["odomentr"];?>" placeholder="kM chegada">
+                <input type="number" class="form-control"  name="odomentr" min="<?php echo $row_detmapa["odomsaida"];?>" value="<?php echo $row_detmapa["odomentr"];?>" placeholder="kM chegada">
               </div>
 
               <div class="input-group">
@@ -55,7 +55,7 @@
                 <span class="input-group-text">Saída</span>
                 <input type="time" class="form-control" name="horasaida"  value="<?php echo $row_detmapa["horasaida"];?>" placeholder="Hora saída">
                 <span class="input-group-text">Chegada</span>
-                <input type="time" class="form-control bg-warning"  name="horaentr" value="<?php echo $row_detmapa["horaentr"];?>" placeholder="Hora chegada" >
+                <input type="time" class="form-control"  name="horaentr" value="<?php echo $row_detmapa["horaentr"];?>" placeholder="Hora chegada" >
               </div>
 
               <div class="col-sm form-floating"> 
@@ -77,6 +77,7 @@
                 <select class="form-select" name="status" required>
                   <option value='aberta' <?php if($row_detmapa['detmp_status'] == 'aberta') echo 'selected';?>>Aberta</option>
                   <option value='fechada' <?php if($row_detmapa['detmp_status'] == 'fechada') echo 'selected';?>>Fechada</option>
+                  <option value='cancelada' <?php if($row_detmapa['detmp_status'] == 'cancelada') echo 'selected';?>>Cancelada</option>
                 </select>
                 <label for="status">Status:</label>
               </div>
@@ -97,10 +98,12 @@
         </div>
       </div>
 
+
       <!-- Modal footer -->
       <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#excluir<?php echo $row_detmapa['iddetmp'] ;?>"><i class="fas fa-trash"></i> Excluir</button>
         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#duplicar<?php echo $row_detmapa['iddetmp'] ;?>"><i class="fas fa-ambulance"></i> Nova Rota</button>
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
   </div>

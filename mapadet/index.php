@@ -25,7 +25,7 @@
     
        <?php } while ($row_detmapa = mysqli_fetch_assoc($result_detmapa)); 
 
-} else echo "<h3>Selecione um veículo</h3>"; 
+} else echo "<h3>Selecione um veículo</br><h5>Clique aqui <div class='btn btn-light shadow-sm' data-bs-toggle='modal' data-bs-target='#insert'><i class='fas fa-plus'></i> Adicionar</div></h5></h3>"; 
 
 include '../templates/footer.php';?>
 

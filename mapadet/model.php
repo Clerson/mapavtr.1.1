@@ -32,12 +32,13 @@ if(isset($_GET['iddetmp'])) {
     if(isset($_GET['delete'])) {
 
     $iddetmp = $_GET['delete'];
+    $idvtr = $_GET['idvtr'];
 
      $sql_detmapa = "DELETE FROM detmapa WHERE iddetmp=$iddetmp";
 
      if ($conn->query($sql_detmapa) === TRUE) {
         echo "
-        <script>location.href='index.php?idmapa=".$idmapa."'</script>";
+        <script>location.href='analit.php?idmapa=".$idmapa."&idvtr=".$idvtr."'</script>";
       } else {
         echo "Error: " . $sql_detmapa . "<br>" . $conn->error;
       } exit();

@@ -13,13 +13,14 @@
 
         <div class="row">
           <div class="col-sm">
-            <div class="btn-warning p-2 text-center rounded-top"><h4><i class="fas fa-ambulance"></i> <?php echo $row_detmapa["vtrtipo"]; ?></h4></div>
+            <div class="text-center"><h4><i class="fas fa-ambulance"></i> <?php echo $row_detmapa["vtrtipo"]; ?></h4></div>
             <img class="card-img-top" src="../veiculos/vtrimg/<?php echo $row_detmapa["vtrimg"]; ?>" alt="Card image">
           </div>
 
           <div class="col-sm">
             <h5>Tem certeza que deseja excluir esse registro?</h5>
-            <a href="model.php?idmapa=<?php echo $idmapa;?>&delete=<?php echo $iddetmp;?>" class="btn btn-warning">Sim</a> 
+            <a href="model.php?idmapa=<?php echo $row_detmapa["idmapa"];?>&idvtr=<?php echo $row_detmapa["idvtr"];?>&delete=<?php echo $row_detmapa["iddetmp"];?>" class="btn btn-danger"><i class="fas fa-trash"></i> Sim</a>
+            <button type="button" class="btn btn-info" data-bs-dismiss="modal"><i class="fas fa-times"></i> Não</button>
           </div>
         </div>
 

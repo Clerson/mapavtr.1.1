@@ -4,7 +4,7 @@
 <title>Mapa Viaturas</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- <meta http-equiv="refresh" content="120" > -->
+<meta http-equiv="refresh" content="60" >
 <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="icon" type="image/x-icon" href="../img/favico.gif">
 <link rel="stylesheet" type="text/css" href="../css/index.css">
@@ -40,6 +40,6 @@ include "_form_insert.php";
               <ul class="navbar-nav">
                 <li class="nav-item"><a href='javascript:history.back()' class='btn btn-light shadow-sm me-2'><i class="fas fa-reply"></i> Voltar</a></li>
                 <li class="nav-item me-2">
-                  <div class='btn btn-light' data-bs-toggle="modal" data-bs-target="#insert"><i class="fas fa-plus"></i> Adicionar</div>
+                  <div class='btn btn-light shadow-sm' data-bs-toggle="modal" data-bs-target="#insert"><i class="fas fa-plus"></i> Adicionar</div>
                 </li>
                 

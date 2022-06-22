@@ -9,7 +9,7 @@ function atualizaOdomVtr(str) {
         document.getElementById("odomentr").innerHTML = this.responseText;
       }
     };
-    xmlhttp.open("GET","getVtrKm.php?idvtr="+str,true);
+    xmlhttp.open("GET","getvtrkm.php?idvtr="+str,true);
     xmlhttp.send();
   }
 }
